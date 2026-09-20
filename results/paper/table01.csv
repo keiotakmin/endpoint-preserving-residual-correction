@@ -1,0 +1,5 @@
+Method,Residual/observation representation,Update,Role
+Proposed,DCT residual + endpoint + current base coefficients,Online ridge; frozen base,State construction
+TEFL,Full previous residual; learned projections,Offline joint training,Transferred comparison
+ELF,Observation Fourier representation,Online regression and blending,Transferred comparison
+ResCAL,Residuals from several forecast origins/horizons,Learned residual correction,Related work; no direct reproduction

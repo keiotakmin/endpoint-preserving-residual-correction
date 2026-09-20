@@ -1,0 +1,119 @@
+\section{Endpoint-Preserving Compressed Residual Correction}
+\label{sec:method}
+
+\subsection{Causal block forecasting protocol}
+Let $t=1,2,\ldots$ index consecutive, nonoverlapping forecast blocks of length $H$. Each block contains $C$ channels. At its forecast origin, a fixed base model produces $f_t\in\mathbb{R}^{H\times C}$ from the preceding $L$ observations. The corresponding target block is $y_t\in\mathbb{R}^{H\times C}$. We define the base-model residual as
+\begin{equation}
+ e_t=y_t-f_t.
+ \label{eq:base_residual}
+\end{equation}
+This residual refers to the uncorrected base forecast. It is not the error of the final blended prediction.
+
+The forecast origin advances by $H$ time steps. Thus, $e_{t-1}$ is fully observed before $f_t$ is corrected, whereas $e_t$ is unavailable. All regression parameters and blending statistics used for block $t$ are estimated from blocks preceding $t$. Once $y_t$ is complete, the method updates these quantities for block $t+1$. It does not update from partially observed blocks. Figure~\ref{fig:method} shows the information used to construct the correction.
+
+\begin{figure*}[t]
+\def\xfigwd{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{figure/fig01_method.pdf}
+\caption{Endpoint-preserving compressed residual correction. The residual trace is schematic, with its final sample highlighted. The preceding residual block is represented by DCT coefficients and its separately retained endpoint. These features and the current base forecast coefficients determine the correction. All inputs are available before the forecast is issued. Regression and blending statistics are updated only after the target block is fully observed.}
+\label{fig:method}
+\end{figure*}
+
+\subsection{Compressed residual state with an explicit endpoint}
+We retain the first $K$ orthonormal DCT basis vectors, including the constant component, in $U\in\mathbb{R}^{H\times K}$. For $h=1,\ldots,H$ and $j=0,\ldots,K-1$, their entries are
+\begin{equation}
+ U_{h,j}=\begin{cases}
+ H^{-1/2}, & j=0,\\
+ \sqrt{2/H}\cos\!\left[\pi(h-\tfrac12)j/H\right], & j>0.
+ \end{cases}
+ \label{eq:dct_basis}
+\end{equation}
+The basis is fixed throughout evaluation and satisfies $U^{\mathsf T}U=I_K$. Define the previous residual coefficients, current forecast coefficients, and retained endpoint by
+\begin{equation}
+ \begin{split}
+ z_{t-1}&=U^{\mathsf T}e_{t-1},\qquad a_t=U^{\mathsf T}f_t,\\
+ r_{t-1,c}&=e_{t-1,H,c}.
+ \end{split}
+ \label{eq:retained_features}
+\end{equation}
+For each component $j$ and channel $c$, the regression input is
+\begin{equation}
+ x_{t,j,c}=\begin{bmatrix}
+ 1 & z_{t-1,j,c} & a_{t,j,c} & \sqrt{H}\,r_{t-1,c}
+ \end{bmatrix}^{\mathsf T}.
+ \label{eq:regression_input}
+\end{equation}
+The same endpoint value is supplied to every component of its channel. The factor $\sqrt{H}$ is a fixed scaling choice. For a constant residual block, it gives the endpoint feature the same scale as the constant DCT coefficient. It does not estimate a data-dependent normalization. Before the first block, $z_0$ and $r_0$ are initialized to zero.
+
+The endpoint retains information that the truncated projection can discard. To see this, let $\delta_H\in\mathbb{R}^{H}$ be the coordinate vector selecting the final time step and define
+\begin{equation}
+ q=(I_H-UU^{\mathsf T})\delta_H.
+ \label{eq:discarded_direction}
+\end{equation}
+Then $U^{\mathsf T}q=0$ and $\delta_H^{\mathsf T}q=\lVert q\rVert_2^2$. Whenever $q\ne0$, adding $q$ to a residual vector leaves its retained coefficients unchanged but changes its endpoint. This holds for the truncated basis used in our evaluation. Therefore, the endpoint is not generally recoverable from those coefficients. This algebraic observation explains the additional input information. Whether it improves prediction is an empirical question addressed by the ablations.
+
+\subsection{Online ridge estimation and blending}
+Each pair $(j,c)$ has its own four-dimensional regression parameter $\beta_{t,j,c}$. Using the input recorded when each earlier forecast was issued, we estimate
+\begin{equation}
+ \begin{split}
+ \beta_{t,j,c}=\mathop{\arg\min}_{b\in\mathbb{R}^4}\; &
+ \lambda\lVert b\rVert_2^2\\
+ &+\sum_{s=1}^{t-1}\rho^{t-1-s}
+ \bigl(z_{s,j,c}-b^{\mathsf T}x_{s,j,c}\bigr)^2.
+ \end{split}
+ \label{eq:ridge_objective}
+\end{equation}
+Here, $z_s=U^{\mathsf T}e_s$, $\lambda>0$ is the ridge coefficient, and $\rho\in(0,1]$ discounts older blocks. The penalty includes the intercept. The evaluated configuration uses $\lambda=1$ and $\rho=2^{-1/128}$, corresponding to a weight half-life of 128 completed blocks.
+
+For clarity, suppress $(j,c)$ in the sufficient statistics. Initialize $G_1=\lambda I_4$ and $b_1=0$. After block $t$ is observed, update
+\begin{equation}
+ \begin{split}
+ G_{t+1}&=\rho G_t+x_t x_t^{\mathsf T}+(1-\rho)\lambda I_4,\\
+ b_{t+1}&=\rho b_t+x_t z_t.
+ \end{split}
+ \label{eq:ridge_update}
+\end{equation}
+Solving $G_t\beta_t=b_t$ gives the minimizer in~\eqref{eq:ridge_objective}. The last term in the update preserves a fixed ridge penalty while the data contribution decays. In particular, $\beta_1=0$, so no fitted correction is available initially. The implementation stores an equivalent packed representation of these statistics and solves the resulting system without explicitly forming its inverse.
+
+The predicted coefficients and raw correction are
+\begin{equation}
+ \widehat z_{t,j,c}=\beta_{t,j,c}^{\mathsf T}x_{t,j,c},
+ \qquad d_t=U\widehat z_t.
+ \label{eq:raw_correction}
+\end{equation}
+Each channel of $d_t$ remains in $\operatorname{span}(U)$. Retaining the endpoint changes the inputs used to estimate the coefficients, not the dimension of the output subspace.
+
+A scalar $\alpha_t\in[0,1]$ controls the correction strength for all horizons and channels. For a completed block $s$, define
+\begin{equation}
+ A_s=\frac{\lVert d_s\rVert_F^2}{HC},\qquad
+ B_s=\frac{\langle d_s,e_s\rangle_F}{HC}.
+ \label{eq:blend_statistics}
+\end{equation}
+Let $\mathcal W_t=\{\max(1,t-W),\ldots,t-1\}$ contain at most $W$ completed blocks, with $\mathcal W_1=\varnothing$. Minimizing their squared error under a shared bounded coefficient gives
+\begin{equation}
+ \alpha_t=\begin{cases}
+ \operatorname{clip}_{[0,1]}\!\left(
+ \dfrac{\sum_{s\in\mathcal W_t}B_s}{\sum_{s\in\mathcal W_t}A_s}
+ \right), & \sum_{s\in\mathcal W_t}A_s>0,\\
+ 0, & \text{otherwise}.
+ \end{cases}
+ \label{eq:blend_weight}
+\end{equation}
+The final forecast is
+\begin{equation}
+ \widehat y_t=f_t+\alpha_t d_t.
+ \label{eq:final_forecast}
+\end{equation}
+We use $W=32$. The controller stores the most recent $(A_s,B_s)$ pairs in a circular buffer and maintains their sums. These statistics use the raw correction issued for block $s$, rather than a correction recomputed with later regression parameters. The bounded coefficient can suppress an unhelpful correction based on recent data, but it does not guarantee improvement on the next block.
+
+The processing order is as follows. First, compute $a_t$, form $x_t$, and issue~\eqref{eq:final_forecast} using the current regression and controller states. After $y_t$ becomes available, compute $e_t$ and update the controller using the issued $d_t$. Then update the regressions with the recorded $x_t$ and the newly available $z_t$. Finally, retain $z_t$ and $r_t$ for the next forecast. The base model is unchanged throughout this sequence.
+
+\subsection{Retained-state accounting}
+We count the bytes of numerical arrays retained by the correction implementation. The count includes the basis, component indices, previous residual summary, regression statistics, and blending controller. It excludes the base model, observation history, forecast and target buffers, temporary feature and solver arrays, and Python object overhead. Thus, it describes retained auxiliary arrays, not peak process memory or a hardware measurement.
+
+For the three non-intercept features in~\eqref{eq:regression_input}, each regression stores six entries of a symmetric slope Gram matrix, three intercept--slope cross terms, and four target cross terms. The intercept weight sum is identical across regressions and is stored once. This gives $13KC+1$ floating-point values for regression statistics. The remaining arrays contain $HK$ basis values, $KC$ previous residual coefficients, $C$ endpoints, and $2W+2$ controller values. With 64-bit floating-point values and $K$ 64-bit component indices, the reported count is
+\begin{equation}
+ S=8\bigl(HK+K+14KC+C+2W+3\bigr)\ \text{bytes}.
+ \label{eq:state_bytes}
+\end{equation}
+For $H=24$, $K=4$, $C=7$, and $W=32$, this is 4528 bytes. The count grows linearly with the number of channels for fixed $H$, $K$, and $W$. We apply the same array-accounting convention to the comparison methods and report their accuracy separately from storage.

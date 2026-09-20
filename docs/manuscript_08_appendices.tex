@@ -1,0 +1,53 @@
+\appendices
+% S labels match the accompanying supplementary asset names.
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theHfigure}{supp.\arabic{figure}}
+\setcounter{table}{2}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\theHtable}{supp.\arabic{table}}
+
+\section{Additional Learned-Adapter Comparisons}
+\label{app:learned}
+
+\subsection{Seed and warmup effects}
+Table~\ref{tab:s_seed} separates the three seeds for the width-64 comparisons. Each entry averages relative reductions over the 12 dataset--backbone pairs within one seed. This differs from the main analysis, which averages seed losses before calculating reductions. Under both warmup settings, the proposed correction improves MSE and MAE over the globally blended adapter in all 12 pairs for every seed.
+
+The remaining rows assess the training procedure rather than endpoint retention. Joint adapter training improves mean error over the paired base-only run under both warmup settings for every seed. However, adding SF warmup does not improve the average raw joint-adapter error relative to MAE warmup. Thus, the correction advantage observed with SF warmup should not be interpreted as evidence that SF itself improves this adapter under the transferred protocol.
+
+\begin{table*}[!t]
+\caption{Width-64 comparisons by training seed. Entries are mean relative reductions (\%) over 12 dataset--backbone pairs within a seed; positive values favor the first method named. Parentheses in row labels identify the warmup loss. Proposed versus adapter uses the same selected joint base and global controller. Joint adapter versus base-only compares the raw adapter with a separately trained paired base model. The last row compares raw joint adapters trained with different warmup losses and does not hold the base forecast fixed. SF denotes MAE plus spectral-flatness warmup.}
+\label{tab:s_seed}
+\centering
+\input{figure/tableS03_seed}
+\end{table*}
+
+\subsection{Dataset--backbone results}
+Figure~\ref{fig:s_conditions} reports the width-64 same-base comparisons after averaging the three seed losses. All entries are positive under both warmup conditions. Their magnitudes vary substantially: under SF warmup, the MSE reduction ranges from approximately 4.9\% for ETTm2 with DLinear to 44.9\% for Appliances with PatchTST. These paired results show the variation behind the averages in Table~\ref{tab:learned_results}. They belong to the joint-training group and should not be substituted for the legacy/refit results in Fig.~\ref{fig:condition_performance}.
+
+\begin{figure*}[!t]
+\def\xfigwd{\textwidth}
+\centering
+\includegraphics[width=.70\textwidth,height=.65\textheight,keepaspectratio]{figure/figS01_learned_conditions.pdf}
+\caption{Relative MSE and MAE reductions (\%) of the proposed correction over the width-64 learned adapter. Within each row and warmup condition, both methods use the same joint base forecast and global controller. Reductions are calculated after averaging the three seed losses. SF base and MAE base identify the warmup used for the jointly trained base model. Positive entries favor the proposal.}
+\label{fig:s_conditions}
+\end{figure*}
+
+\section{Supplementary Numerical Records}
+\label{app:records}
+
+The accompanying CSV tables provide unrounded losses and retained array counts. Table S1 (\texttt{tableS01\_\allowbreak all\_\allowbreak conditions.csv}) contains the 72 legacy/refit conditions and four additional-site conditions before seed aggregation. Its \texttt{mse} and \texttt{mae} fields refer to the proposed method. The \texttt{static}, \texttt{elf}, and \texttt{independent} prefixes identify the uncorrected base, full ELF with global blending, and coefficient-only correction, respectively. Percentage columns use the reference loss named in their suffix. The \texttt{trace\_file} field identifies the corresponding archived block-loss record.
+
+Table S2 (\texttt{tableS02\_\allowbreak learned\_\allowbreak all.csv}) contains 864 rows: six datasets, two backbones, two warmup settings, three seeds, three adapter widths, and four forecast variants. The \texttt{rank} field records the adapter hidden width, including the expanded width 64. The \texttt{kind} field identifies MAE or MAE plus SF warmup. The \texttt{arm} values \texttt{base}, \texttt{adapter}, \texttt{adapter\_global}, and \texttt{boundary} denote the uncorrected jointly trained base, raw adapter, globally blended adapter, and globally blended proposal. In particular, \texttt{base} does not denote the separate base-only training run used in the training-effect comparison. A zero \texttt{state\_bytes} value for that arm means no auxiliary correction arrays are counted, not that the base model uses no memory.
+
+To reproduce a seed-averaged comparison from Table S2, group losses by dataset, backbone, warmup, width, and forecast variant, then average over seeds. Form paired relative reductions using the chosen reference variant and finally average over the 12 dataset--backbone pairs. Table~\ref{tab:s_settings} provides a compact configuration reference. The full preprocessing, training, and storage definitions remain those in Sections~\ref{sec:method} and~\ref{sec:experimental_setup}.
+
+\clearpage
+\twocolumn[{%
+\expandafter\def\csname @captype\endcsname{table}
+\caption{Configuration reference for the supplementary records. Training settings apply to the learned-adapter group. The legacy/refit training protocol is specified separately in Section~\ref{sec:experimental_setup}.}
+\label{tab:s_settings}
+\centering
+\input{figure/tableS04_settings}
+\vspace{14pt}
+}]

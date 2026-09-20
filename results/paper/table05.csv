@@ -1,0 +1,9 @@
+Method,Previous retained B,Revised retained B,MSE improvement vs static (%)
+boundary_global,4528.0,4528.0,16.991743
+full_global,946504.0,301984.0,19.684628
+in3_global,5032.0,2944.0,7.890593
+in5_global,9080.0,5472.0,9.589187
+in9_global,19864.0,11200.0,14.538968
+out4_global,888040.0,244192.0,18.592339
+compact3_global,3016.0,1600.0,7.793724
+compact5_global,5720.0,2784.0,9.424900
