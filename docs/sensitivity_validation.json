@@ -1,0 +1,34 @@
+[
+  {
+    "run": "blocks_refit_ETTh1_dlinear_s0.npz",
+    "max_block_loss_difference": 0.0
+  },
+  {
+    "run": "blocks_refit_ETTh1_patchtst_s0.npz",
+    "max_block_loss_difference": 0.0
+  },
+  {
+    "run": "blocks_sf_joint_r64_ETTh1_patchtst_s0.npz",
+    "max_block_loss_difference": 0.0
+  },
+  {
+    "run": "blocks_legacy_ETTh1_patchtst_s0.npz",
+    "max_block_loss_difference": 0.0
+  },
+  {
+    "run": "blocks_legacy_ETTh1_dlinear_s0.npz",
+    "max_block_loss_difference": 0.0
+  },
+  {
+    "run": "blocks_mae_joint_r64_ETTh1_patchtst_s0.npz",
+    "max_block_loss_difference": 0.0
+  },
+  {
+    "run": "blocks_mae_joint_r64_ETTh1_dlinear_s0.npz",
+    "max_block_loss_difference": 0.0
+  },
+  {
+    "run": "blocks_sf_joint_r64_ETTh1_dlinear_s0.npz",
+    "max_block_loss_difference": 0.0
+  }
+]

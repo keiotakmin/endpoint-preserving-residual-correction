@@ -741,11 +741,11 @@
   },
   "docs/manuscript_04_experimental_setup.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/04_experimental_setup.tex",
-    "sha256": "e8b896d78f9c3503e8c5ebfc33c25f210c0e276220ec0244741fa66c31375121"
+    "sha256": "061e60264cc7c18a98c9bca76f27cd3ebe294049a53452a322b7b97257688e01"
   },
   "docs/manuscript_08_appendices.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/08_appendices.tex",
-    "sha256": "9c2fba4883f80ab4709be61496e22dc627c5841b02cf54b3e02a1140c08f3232"
+    "sha256": "24fbd002e3fdbd968150dd9eb940d027e4de56ff44c70b269f50f354b460ca69"
   },
   "LICENSE": {
     "source": "repro/tsf-edge-adaptation/LICENSE",
@@ -762,5 +762,66 @@
       "prep"
     ],
     "sha256": "60883da1ccdd9655dc8405f9b05fac02a8bea20468266420e4c75ecfdd5132ec"
+  },
+  "docs/manuscript_07_conclusion.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/07_conclusion.tex",
+    "sha256": "0b734629290618731b846f0c3593d833ef42d39886ee6dd3b25528b29df4b3ee"
+  },
+  "docs/manuscript_00_abstract.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/00_abstract.tex",
+    "sha256": "4f875179b24eaa13483eb2f03875c45388c9289add158ac30d01e9fd40b85006"
+  },
+  "docs/manuscript_06_discussion.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/06_discussion.tex",
+    "sha256": "fc69fa070582cf6749787d062a9ec0db93c9e323d3c84503a00cba32a6c71ad1"
+  },
+  "docs/manuscript_01_introduction.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/01_introduction.tex",
+    "sha256": "8b105a72dbc0b43ee910d9fe1baa6b539f2ab0b1b5516186b52602048844d191"
+  },
+  "docs/manuscript_05_results.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/05_results.tex",
+    "sha256": "ccb698854021981d06da1621eb3ed58660b14866dd1cdf25d0d1234a6f66b844"
+  },
+  "docs/manuscript_02_related_work.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/02_related_work.tex",
+    "sha256": "184823ca6ed254bbbbf8cb877217c5dd7d62d8b522461fa25d12d9c2896c94bd"
+  },
+  "results/paper/table07.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table07.csv",
+    "sha256": "d873bf4414849170bf74fd3d55f6316311c438dce622b6e310c7c20947c86985"
+  },
+  "results/paper/tableS06_origins.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS06_origins.csv",
+    "sha256": "36f756a1aad4686da462d63b024361302b21c253a22b61a8e57c3e4bbc12dc67"
+  },
+  "results/paper/table08.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table08.csv",
+    "sha256": "dd345a6a0b15bc0d1cbf0db8e7b632f037d99779647001abf9b60731989384a7"
+  },
+  "results/paper/tableS05_sensitivity.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS05_sensitivity.csv",
+    "sha256": "8d574a0c9434aefa9df7572cfb4e1788eaeee95b51cd52b3da9fa41f60e0522d"
+  },
+  "docs/ASSET_MANIFEST.json": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/ASSET_MANIFEST.json",
+    "sha256": "dab435529a109b868ad207979e321031e08b1a9ef6d85215f54310c124279cb2"
+  },
+  "src/base_training.py": {
+    "source": "experiments/tsf_edge/online_eval.py",
+    "transformation": "AST-extracted unchanged warmup_model, val_mse, warm_and_select; standalone imports and WARM_GRID.",
+    "source_sha256": "067489d02c3ca5209b1d3874d42c71ae9f227cac9884247f9c8ca14c499b00c5",
+    "sha256": "630fb4b9641f32b5b3680bdec4c077b9ba66feea4f117904121feaa6ff9a3c14"
+  },
+  "config/datasets.json": {
+    "source": "experiments/tsf_edge/data/*.csv",
+    "transformation": "Ordered columns, row counts and contiguous little-endian float32 hashes; pinned provider URLs.",
+    "sha256": "cf188f5a8601c0f8deb7d94c7f0889ffffe90fb88666818ca5920a785c19b1d8"
+  },
+  "config/bdg2_rat_snapshot_adjustments.csv": {
+    "source": "experiments/tsf_edge/data/bdg2.csv",
+    "source_sha256": "0bd7108ea341957344bcb7439f95518fd76d91f47f104bd54e6f865497f4b927",
+    "transformation": "78 differences from pinned cleaned source after ffill/bfill; exact archived values, no inferred historical rule.",
+    "sha256": "0ef8ce6f3171df9792afcc0b9dc71ab0597879b83f8676e2e815262a3237b9a7"
   }
 }

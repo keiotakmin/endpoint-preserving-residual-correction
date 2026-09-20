@@ -1,0 +1,124 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Accuracy and retained state}
+Table~\ref{tab:main_results} relates the accuracy gains to retained storage: the proposed correction reduces mean MSE by 16.99\% using 4528 bytes, whereas full ELF reduces it by 19.68\% using 301984 bytes (median array counts). This is a 2.69 percentage-point difference in mean reduction at approximately 1/66.7 of the retained storage. The detailed rows report absolute errors for the legacy, refit, and additional-site conditions. The proposed correction reduces both MSE and MAE relative to the uncorrected base in all 72 legacy/refit conditions and all four additional-site conditions before seed aggregation. Across the 72 main conditions, the mean relative MSE reduction is 16.99\%. The improvements therefore extend beyond a single architecture or base-training variant within this evaluation.
+
+\begin{table*}[!t]
+\caption{Accuracy--storage tradeoff and absolute forecast errors. The overview uses all 72 legacy/refit conditions: storage is the median retained array size, and MSE reduction is the mean condition-wise reduction relative to Static. Lower absolute errors are preferred. Panels A and B average losses over three seeds within each dataset--backbone condition. Panel C uses seed 0. Bold indicates the minimum among Static, ELF, and Proposed for each metric before rounding to four decimal places. ELF denotes the full transferred Fourier regressor with the global controller.}
+\label{tab:main_results}
+\centering
+\input{figure/table03}
+\end{table*}
+
+The proposed method is not the most accurate comparator overall. The full ELF configuration achieves a mean MSE reduction of 19.68\% relative to the same static forecasts. It has lower MSE than the proposed method in 54 of the 72 main conditions and all four additional-site conditions. Table~\ref{tab:main_results} shows that the proposed method is competitive on ETTh1 and ETTh2 with DLinear, and on Appliances with DLinear. ELF is stronger on several other combinations, including both ETTm datasets. The outcome depends on the dataset and base architecture.
+
+Figure~\ref{fig:accuracy_storage} and Table~\ref{tab:storage_results} place these errors alongside retained array sizes. The proposed method uses a median of 4528 bytes. Full ELF uses 301984 bytes after conversion to independent real coordinates and packed symmetric statistics. This is approximately 66.7 times the proposed count. The representation change reduces full ELF storage from 946504 bytes while preserving its forecasts to numerical precision. The observed gap should therefore be assessed using the revised storage count.
+
+Among the smaller Fourier configurations, \texttt{in5} and \texttt{in9} retain 5472 and 11200 bytes and yield mean MSE reductions of 9.59\% and 14.54\%, respectively. The proposed method provides a larger mean reduction with fewer retained bytes than these two configurations. In contrast, \texttt{compact5} retains only 2784 bytes and yields a 9.42\% reduction. These comparisons identify an accuracy--storage tradeoff. They do not establish a universal best configuration across all resource budgets.
+
+
+
+\begin{figure}[!tbp]
+\def\xfigwd{\columnwidth}
+\centering
+\includegraphics[width=\columnwidth]{figure/fig02_accuracy_storage.pdf}
+\caption{Accuracy and retained numerical storage across the 72 legacy/refit conditions. The vertical axis averages condition-wise MSE reductions relative to the static base. The horizontal axis is the median array size on a logarithmic scale. The inset separates the four low-storage configurations using a linear horizontal axis with ticks in thousands of bytes. All corrections use the global controller. ELF configurations use independent real coordinates and packed statistics. Storage excludes the base model, input history, and temporary workspace as defined in Section~\ref{sec:method}.}
+\label{fig:accuracy_storage}
+\end{figure}
+
+
+
+\subsection{Comparison with learned residual adapters}
+
+\begin{table}[!tbp]
+\caption{Comparisons on jointly trained base models. Positive percentages indicate error reductions, averaged over 12 dataset--backbone pairs after averaging the three seed losses. Proposed versus adapter uses the same joint base and global controller. Adapter versus base-only compares the raw joint adapter forecast against the paired base-only training run. Retained bytes are medians for the globally blended adapters; Proposed retains 4528 bytes in every row. SF denotes the additional spectral-flatness warmup term.}
+\label{tab:learned_results}
+\centering
+\input{figure/table04}
+\end{table}
+Table~\ref{tab:learned_results} compares the proposed correction with the learned adapters on their corresponding selected joint base models. For MAE warmup, the mean MSE reduction relative to the globally blended adapter is 19.27\%, 18.98\%, and 16.69\% at widths 2, 4, and 64. With MAE plus SF warmup, these reductions are 20.15\%, 19.54\%, and 17.21\%. The corresponding MAE reductions range from 8.82\% to 11.29\% across the six configurations.
+
+For every width and warmup condition, the proposed correction has lower MSE and lower MAE in all 12 dataset--backbone pairs after averaging losses over seeds. Thus, the MSE and MAE win counts are both 12/12 for each row of Table~\ref{tab:learned_results}. These are paired comparisons within shared datasets, not 72 independent datasets or a test of statistical significance.
+
+The small adapters themselves also improve on their paired base-only training runs. At widths 2 and 4, their raw forecasts reduce mean MSE by 2.22--3.68\% and MAE by 1.27--1.98\%. The comparison therefore includes learned correction models that provide measurable benefits under the training protocol. This check evaluates the joint-training procedure as a whole. The same-base comparisons in the first two numerical columns of Table~\ref{tab:learned_results} isolate the subsequent choice of correction method.
+
+Accuracy and storage again favor different configurations. The median retained sizes of the globally blended adapters are 1584, 1968, and 13488 bytes at widths 2, 4, and 64. The proposed method uses 4528 bytes. Its accuracy advantage over widths 2 and 4 comes with a larger retained state, whereas the width-64 comparison favors it on both reported quantities. The gains over learned adapters cannot be assigned entirely to the endpoint feature because the regression architecture and estimation procedure also differ. Appendix~\ref{app:learned} provides seed-wise and dataset--backbone comparisons for width 64.
+
+
+
+\begin{table}[!tbp]
+\caption{Retained numerical storage before and after the equivalent real representation of ELF. Both counts use the same exclusions. The final column is the mean condition-wise MSE reduction relative to the static base over the 72 legacy/refit conditions. All rows use global blending.}
+\label{tab:storage_results}
+\centering
+\input{figure/table05}
+\end{table}
+
+
+
+\subsection{Contribution of endpoint selection}
+Table~\ref{tab:endpoint_ablation} holds the regression structure and retained array size fixed while changing the scalar residual summary. On the SF joint base models, retaining the endpoint reduces MSE by 5.43\%, 5.49\%, and 6.94\% relative to retaining the first residual, middle residual, and block mean, respectively. The corresponding MAE reductions are 3.38\%, 3.34\%, and 4.14\%.
+
+The MAE-only warmup condition gives the same direction of improvement. Its MSE reductions range from 4.70\% to 6.00\%, and its MAE reductions range from 2.93\% to 3.61\%. Each summary comparison favors the endpoint in all 12 seed-averaged dataset--backbone pairs for both metrics. The direction also holds for each of the three individual seeds. The raw, unblended correction retains positive mean improvements over all three summaries under both warmup conditions, so the observed contribution is not solely an effect of the global controller.
+
+These results support the choice of the endpoint within the tested compressed regression. The first and middle controls have the same number of inputs and coefficients, which rules out an increase in regression size as the explanation for their difference from the endpoint variant. The mean control has the same stored size but duplicates information in the constant DCT component. Its result therefore also reflects the effect of a redundant input under ridge regularization. None of these comparisons proves that the endpoint is optimal among all possible residual summaries.
+
+\begin{table}[!tbp]
+\caption{Endpoint selection at equal retained array sizes. Positive values give the mean relative error reduction from retaining the endpoint instead of the listed residual summary. Each comparison uses the same width-64 joint base, regression settings, and global controller. Three-seed losses are averaged within each of 12 dataset--backbone pairs before calculating relative reductions. SF denotes the additional spectral-flatness warmup term.}
+\label{tab:endpoint_ablation}
+\centering
+\input{figure/table06}
+\end{table}
+
+\subsection{Complete input construction versus endpoint alone}
+Table~\ref{tab:input_ablation} compares the complete construction with simpler inputs on the 72 main conditions. Relative to endpoint-only regression, the complete method reduces mean MSE by 4.71\% and MAE by 2.26\%, with lower MSE in all 72 conditions. The raw comparison also favors the complete method in all 72 conditions, with a mean MSE reduction of 4.08\%. Thus, the benefit over endpoint alone persists without blending. It requires more retained arrays: 4528 rather than 2288 median bytes.
+
+Removing current forecast coefficients increases MSE in all 72 main conditions; the complete method's mean paired reduction is 2.45\%. Removing residual DCT coefficients gives a mean paired reduction of 2.17\%, but favors the complete method in only 67/72 conditions. The five exceptions are ETTh2 with DLinear (legacy seeds 0 and 2, and all refit seeds), where the complete method's MSE is 0.01--0.22\% higher. The compressed residual history therefore contributes on average but is not necessary for improvement in every condition.
+
+The complete method also improves on endpoint-only regression on the separately trained width-64 bases: mean MSE reductions are 6.53\% and 6.64\% for MAE and SF warmup, respectively, with wins in all 12 seed-averaged pairs for each. Against the control without residual DCT inputs, the corresponding win counts are 11/12; ETTh2 with DLinear remains the exception. All four additional-site conditions favor the complete method over endpoint alone, with a mean MSE reduction of 4.04\%. These comparisons support average complementarity of the inputs within this regression family, rather than universal superiority of every input.
+
+\begin{table}[!tbp]
+\caption{Input ablations on the 72 main conditions. MSE and MAE columns are mean relative reductions from the same static base, not paired reductions from endpoint-only regression. Bytes are median retained arrays with global blending. All fitted regressions use four output DCT components and an intercept; endpoint persistence has no fitted regression.}
+\label{tab:input_ablation}
+\centering
+\input{figure/table07}
+\end{table}
+
+\subsection{Setting and candidate-selection sensitivity}
+Increasing $K$ from 1 to 8 improves the main mean MSE reduction from 13.46\% to 17.69\% while increasing retained arrays from 1576 to 8464 bytes (Table~\ref{tab:s_sensitivity}). The reference $K=4$ gives 16.99\% at 4528 bytes. It is therefore an accuracy--storage choice, not the accuracy-optimal setting in this pool. With $K=4$ fixed, the tested one-factor changes to ridge, half-life, or controller window yield mean MSE reductions of 15.91--17.00\%. This supports persistence of the average benefit across these settings, without establishing insensitivity to their interactions.
+
+Table~\ref{tab:temporal_selection} reports the later-half evaluation. On the main conditions, the fixed reference reduces MSE by 18.80\% relative to the static base, compared with 19.52\% for prefix selection among 13 settings and 19.26\% among all 21 candidates. Their paired reductions relative to the fixed reference are 0.82\% and 0.53\%, respectively. The prefix-selected losses exceed the corresponding suffix-oracle losses by 0.47\% and 0.77\% on average. These quantities are finite-pool diagnostic gaps, not estimates of all selection bias incurred during method development.
+
+The 13-setting prefix procedure selects $K=8$ in 49/72 main streams. The 21-candidate procedure selects it in 42 streams, while also selecting the middle summary in five, the first summary in one, and the control without residual DCT inputs in three. Selection minimizes MSE across candidates with different storage requirements. Neither its gains nor its implementation cost can be attributed to the reference method's 4528 bytes. Positive average reductions also persist in all three expanding-prefix intervals (Table~\ref{tab:s_origins}), and the separately reported joint-base groups retain substantial gains. All these results remain retrospective analyses of series used during development.
+
+\begin{table}[!tbp]
+\caption{Later-half MSE reductions (\%) relative to each group's static base. Fixed uses the reference throughout; Prefix chooses using the earlier half; Oracle chooses using the scored later half. Pools contain 13 setting variants or all 21 candidates. Main/Sites average 72/4 condition-wise reductions; MAE/SF joint groups average 12 reductions after averaging seed losses. These intervals differ from the full-period evaluation.}
+\label{tab:temporal_selection}
+\centering
+\input{figure/table08}
+\end{table}
+
+\subsection{Condition-wise behavior and failure cases}
+Figure~\ref{fig:condition_performance} separates legacy, refit, and additional-site results. Improvements over the static base occur alongside losses to stronger comparators. In particular, ELF has lower MSE and MAE on both additional sites for both architectures. The proposed method also has a small negative result against coefficient-only regression: on Fox with PatchTST, its MSE is approximately 0.113\% higher. This control retains fewer bytes, so endpoint augmentation does not provide an improvement for every evaluated base forecast.
+
+Full-period improvements can also coexist with local deterioration. Figure~\ref{fig:worst_interval} shows the interval selected by the maximum local relative MSE criterion in Section~\ref{sec:experimental_setup}. It occurs on ETTm1 with the legacy PatchTST model and seed 0. Across blocks 124--155, the proposed method has 19.63\% higher MSE than the static base. Over the complete evaluation stream for that condition, it reduces MSE by 11.17\%. The local excess and the full-period reduction use different time intervals in their denominators.
+
+The selected interval demonstrates a limit of adaptation from completed residual blocks. The controller estimates correction strength from past errors, and favorable past performance does not ensure improvement in the next interval. The trace establishes the occurrence of local harm. It does not identify a unique causal mechanism for that episode. We therefore retain both the full-period metrics and the adverse interval when interpreting effectiveness.
+
+\begin{figure*}[p]
+\def\xfigwd{\textwidth}
+\centering
+\includegraphics[width=\textwidth,height=.82\textheight,keepaspectratio]{figure/fig05_condition_performance.pdf}
+\caption{Condition-wise relative error reductions of the proposed method (\%). Positive blue entries favor the proposal, and negative red entries favor the comparator. Panels (a) and (b) use three-seed mean losses, while panel (c) uses seed 0. Training variants and sites are not pooled. ELF denotes the full transferred configuration. Coefficient-only denotes the four-component control with a different retained size. All correction comparisons use the same base and global blending. Colors saturate beyond $\pm40\%$, while cell labels give the numerical reductions.}
+\label{fig:condition_performance}
+\end{figure*}
+
+\begin{figure*}[!t]
+\def\xfigwd{\textwidth}
+\centering
+\includegraphics[width=.9\textwidth]{figure/fig06_worst_interval.pdf}
+\caption{Selected worst 32-block interval on ETTm1, legacy PatchTST, seed 0. The shaded region covers blocks 124--155. The left panel shows block MSE. The right panel shows the relative MSE excess over the local static loss for each trailing 32-block window, plotted at its final block. Selection maximizes local relative MSE across all 76 evaluated streams with window starts at block 32 or later. This diagnostic case has a local excess of 19.63\% despite a full-period MSE reduction of 11.17\%. It is not a representative random interval.}
+\label{fig:worst_interval}
+\end{figure*}
+
+% Allow the discussion to fill the remaining text area; flush before references.

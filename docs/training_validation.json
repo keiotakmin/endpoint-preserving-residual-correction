@@ -1,0 +1,98 @@
+[
+  {
+    "run": "legacy_ETTh1_dlinear_s0",
+    "mse": 0.39557309553664094,
+    "reference_mse": 0.39557309553664094,
+    "absolute_difference": 0.0
+  },
+  {
+    "run": "legacy_ETTh1_patchtst_s0",
+    "mse": 0.4293842736337853,
+    "reference_mse": 0.4293842736337853,
+    "absolute_difference": 0.0
+  },
+  {
+    "run": "mae_joint_r2_ETTh1_dlinear_s0",
+    "mse": 0.4869653188891858,
+    "reference_mse": 0.4869653188891859,
+    "absolute_difference": 1.1102230246251565e-16
+  },
+  {
+    "run": "mae_joint_r2_ETTh1_patchtst_s0",
+    "mse": 0.5500131869640071,
+    "reference_mse": 0.5500131869640071,
+    "absolute_difference": 0.0
+  },
+  {
+    "run": "mae_joint_r4_ETTh1_dlinear_s0",
+    "mse": 0.483213702633125,
+    "reference_mse": 0.483213702633125,
+    "absolute_difference": 0.0
+  },
+  {
+    "run": "mae_joint_r4_ETTh1_patchtst_s0",
+    "mse": 0.5527918652238473,
+    "reference_mse": 0.5527918652238474,
+    "absolute_difference": 1.1102230246251565e-16
+  },
+  {
+    "run": "mae_joint_r64_ETTh1_dlinear_s0",
+    "mse": 0.5065316264512538,
+    "reference_mse": 0.5065316264512538,
+    "absolute_difference": 0.0
+  },
+  {
+    "run": "mae_joint_r64_ETTh1_patchtst_s0",
+    "mse": 0.5619704071675818,
+    "reference_mse": 0.5619704071675818,
+    "absolute_difference": 0.0
+  },
+  {
+    "run": "refit_ETTh1_dlinear_s0",
+    "mse": 0.39982385080985483,
+    "reference_mse": 0.3998238508098548,
+    "absolute_difference": 5.551115123125783e-17
+  },
+  {
+    "run": "refit_ETTh1_patchtst_s0",
+    "mse": 0.4210708479325172,
+    "reference_mse": 0.4210708479325172,
+    "absolute_difference": 0.0
+  },
+  {
+    "run": "sf_joint_r2_ETTh1_dlinear_s0",
+    "mse": 0.49704914770631126,
+    "reference_mse": 0.4970491477063112,
+    "absolute_difference": 5.551115123125783e-17
+  },
+  {
+    "run": "sf_joint_r2_ETTh1_patchtst_s0",
+    "mse": 0.5964066994025048,
+    "reference_mse": 0.5964066994025048,
+    "absolute_difference": 0.0
+  },
+  {
+    "run": "sf_joint_r4_ETTh1_dlinear_s0",
+    "mse": 0.490164313253588,
+    "reference_mse": 0.49016431325358806,
+    "absolute_difference": 5.551115123125783e-17
+  },
+  {
+    "run": "sf_joint_r4_ETTh1_patchtst_s0",
+    "mse": 0.5953198558909824,
+    "reference_mse": 0.5953198558909824,
+    "absolute_difference": 0.0
+  },
+  {
+    "run": "sf_joint_r64_ETTh1_dlinear_s0",
+    "mse": 0.5126109305496503,
+    "reference_mse": 0.5126109305496505,
+    "absolute_difference": 1.1102230246251565e-16
+  },
+  {
+    "run": "sf_joint_r64_ETTh1_patchtst_s0",
+    "mse": 0.5839392318369546,
+    "reference_mse": 0.5839392318369545,
+    "absolute_difference": 1.1102230246251565e-16
+  }
+]

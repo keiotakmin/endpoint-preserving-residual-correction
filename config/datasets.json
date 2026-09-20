@@ -1,0 +1,158 @@
+{
+  "ETTh1": {
+    "url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/1d16c8f4f943005d613b5bc962e9eeb06058cf07/ETT-small/ETTh1.csv",
+    "rows": 17420,
+    "columns": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ],
+    "float32_sha256": "8fec12c3e12d38424e0b03cdff21909ef67b92609ba3d76b64f3937ac481e93a"
+  },
+  "ETTh2": {
+    "url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/1d16c8f4f943005d613b5bc962e9eeb06058cf07/ETT-small/ETTh2.csv",
+    "rows": 17420,
+    "columns": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ],
+    "float32_sha256": "0c3b296810a8a7f6b8e3c6591ca606800ed0780aba7ee754c1dbba454d1ced43"
+  },
+  "ETTm1": {
+    "url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/1d16c8f4f943005d613b5bc962e9eeb06058cf07/ETT-small/ETTm1.csv",
+    "rows": 69680,
+    "columns": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ],
+    "float32_sha256": "f967e71ba1c947625325e320cb7d7736537b4f5963cec71ff0a3c489fb04ed8b"
+  },
+  "ETTm2": {
+    "url": "https://raw.githubusercontent.com/zhouhaoyi/ETDataset/1d16c8f4f943005d613b5bc962e9eeb06058cf07/ETT-small/ETTm2.csv",
+    "rows": 69680,
+    "columns": [
+      "HUFL",
+      "HULL",
+      "MUFL",
+      "MULL",
+      "LUFL",
+      "LULL",
+      "OT"
+    ],
+    "float32_sha256": "9353c9658fa58736c778002858638405a525af914f62bde1156739fc3af5211e"
+  },
+  "appliances": {
+    "url": "https://raw.githubusercontent.com/LuisM78/Appliances-energy-prediction-data/e3e4c27a4ae2b41b21f84b4c9ac2d822d3d0ace1/energydata_complete.csv",
+    "rows": 19735,
+    "columns": [
+      "Appliances",
+      "lights",
+      "T1",
+      "RH_1",
+      "T2",
+      "RH_2",
+      "T3",
+      "RH_3",
+      "T4",
+      "RH_4",
+      "T5",
+      "RH_5",
+      "T6",
+      "RH_6",
+      "T7",
+      "RH_7",
+      "T8",
+      "RH_8",
+      "T9",
+      "RH_9",
+      "T_out",
+      "Press_mm_hg",
+      "RH_out",
+      "Windspeed",
+      "Visibility",
+      "Tdewpoint"
+    ],
+    "float32_sha256": "d786612d91ac47cd1b94dd7d632c80cf0f962e4d2396406e91aee58a5297d801"
+  },
+  "bdg2": {
+    "url": "https://media.githubusercontent.com/media/buds-lab/building-data-genome-project-2/9b97ccbe90096aff42ed4fd6493bf7ae692d7118/data/meters/cleaned/electricity_cleaned.csv",
+    "rows": 17544,
+    "columns": [
+      "Rat_education_Kathryn",
+      "Rat_education_Theo",
+      "Rat_public_Kimber",
+      "Rat_office_Jamal",
+      "Rat_education_Lee",
+      "Rat_education_Kandice",
+      "Rat_office_Adele",
+      "Rat_office_Lora",
+      "Rat_public_Sharron",
+      "Rat_public_Joann",
+      "Rat_education_Calvin",
+      "Rat_public_Allie",
+      "Rat_public_Leo",
+      "Rat_public_Mark",
+      "Rat_assembly_Ezequiel"
+    ],
+    "float32_sha256": "33a46e2cebfa2fba32d481cabdb3ccff3e24270aceee4a613d4e8e78b2ac6d0f",
+    "snapshot_adjustments": "bdg2_rat_snapshot_adjustments.csv"
+  },
+  "bdg2_fox": {
+    "url": "https://media.githubusercontent.com/media/buds-lab/building-data-genome-project-2/9b97ccbe90096aff42ed4fd6493bf7ae692d7118/data/meters/cleaned/electricity_cleaned.csv",
+    "rows": 17544,
+    "columns": [
+      "Fox_lodging_Helen",
+      "Fox_education_Andre",
+      "Fox_assembly_Tony",
+      "Fox_education_Claire",
+      "Fox_education_Ray",
+      "Fox_office_Thelma",
+      "Fox_office_Karima",
+      "Fox_office_Clayton",
+      "Fox_education_Yolande",
+      "Fox_office_Edythe",
+      "Fox_education_Ollie",
+      "Fox_assembly_Audrey",
+      "Fox_assembly_Sheldon",
+      "Fox_lodging_Stephen",
+      "Fox_education_Eddy"
+    ],
+    "float32_sha256": "a1ff494a9ddf7b5889cf929aaac9bb01d0a935e08368e3e83228a80f97f48bea"
+  },
+  "bdg2_panther": {
+    "url": "https://media.githubusercontent.com/media/buds-lab/building-data-genome-project-2/9b97ccbe90096aff42ed4fd6493bf7ae692d7118/data/meters/cleaned/electricity_cleaned.csv",
+    "rows": 17544,
+    "columns": [
+      "Panther_retail_Lester",
+      "Panther_lodging_Kirk",
+      "Panther_office_Clementine",
+      "Panther_education_Misty",
+      "Panther_education_Violet",
+      "Panther_education_Cleopatra",
+      "Panther_lodging_Willa",
+      "Panther_education_Scarlett",
+      "Panther_education_Sophia",
+      "Panther_education_Emily",
+      "Panther_parking_Mellissa",
+      "Panther_education_Mohammad",
+      "Panther_lodging_Cora",
+      "Panther_education_Edna",
+      "Panther_lodging_Kara"
+    ],
+    "float32_sha256": "27e6725d0fbacee1daaf7009ff98ffc5726b8f2e2271f6ee62e67f0a5f15d28d"
+  }
+}

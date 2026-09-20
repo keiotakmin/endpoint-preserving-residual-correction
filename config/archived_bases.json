@@ -1,0 +1,686 @@
+[
+  {
+    "dataset": "ETTh1",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 2000,
+    "reference_mse": 0.39557309553664094,
+    "reference_mae": 0.4036559040895815
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.3987785825318127,
+    "reference_mae": 0.4061631936103853
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.3941047590716731,
+    "reference_mae": 0.40177769766044624
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 500,
+    "reference_mse": 0.4293842736337853,
+    "reference_mae": 0.43678870818430804
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.4555890611533524,
+    "reference_mae": 0.44701021389353185
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.4620188900151995,
+    "reference_mae": 0.4532386548664537
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.14155012913218934,
+    "reference_mae": 0.253184984206867
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.13692621605841437,
+    "reference_mae": 0.24642911883046062
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.14446592109585726,
+    "reference_mae": 0.2566657938040532
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 200,
+    "reference_mse": 0.18452961802492074,
+    "reference_mae": 0.29120832876985486
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 200,
+    "reference_mse": 0.18481132719422727,
+    "reference_mae": 0.3006248746049979
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 500,
+    "reference_mse": 0.23356728071513397,
+    "reference_mae": 0.35752235531248133
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.2635142382218694,
+    "reference_mae": 0.33889719042470323
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.26235662549979066,
+    "reference_mae": 0.3376587980789954
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 8000,
+    "reference_mse": 0.26127978806106344,
+    "reference_mae": 0.33658306444217784
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 8000,
+    "reference_mse": 0.31495305810018687,
+    "reference_mae": 0.36252751994095495
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.3319671501115122,
+    "reference_mae": 0.3747531882814636
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.3215011110080603,
+    "reference_mae": 0.36141507005456525
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.09711361918486908,
+    "reference_mae": 0.20833024552107507
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.09663709859275905,
+    "reference_mae": 0.2062022960647236
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 20000,
+    "reference_mse": 0.09593832081404839,
+    "reference_mae": 0.20577214049662157
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 2000,
+    "reference_mse": 0.12152818863614154,
+    "reference_mae": 0.23409046815036683
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.10860635312188159,
+    "reference_mae": 0.21890228772988796
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 200,
+    "reference_mse": 0.11811368575958961,
+    "reference_mae": 0.23566357820407463
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 8000,
+    "reference_mse": 0.23256913235773646,
+    "reference_mae": 0.2880679854013931
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 8000,
+    "reference_mse": 0.23386006925087754,
+    "reference_mae": 0.29276772496260073
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 20000,
+    "reference_mse": 0.2466048524107625,
+    "reference_mae": 0.30419051110679446
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 2000,
+    "reference_mse": 0.4215198580785002,
+    "reference_mae": 0.37379643124293077
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 2000,
+    "reference_mse": 0.4488101578057486,
+    "reference_mae": 0.3891468014261809
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.4399032140442658,
+    "reference_mae": 0.38619216504885023
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 2000,
+    "reference_mse": 0.2169297286897772,
+    "reference_mae": 0.30630986207581423
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 20000,
+    "reference_mse": 0.2259040573703685,
+    "reference_mae": 0.3231701026239107
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.21927388904183934,
+    "reference_mae": 0.31029737360137155
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 2000,
+    "reference_mse": 0.22032237350267986,
+    "reference_mae": 0.3221009568288342
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.22250637970944304,
+    "reference_mae": 0.31984458302914576
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 1000,
+    "reference_mse": 0.21804065202397735,
+    "reference_mae": 0.31901646426229724
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 2000,
+    "reference_mse": 0.3998238508098548,
+    "reference_mae": 0.40788663806949876
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.39961322412735306,
+    "reference_mae": 0.40608468254099594
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.38931950805723486,
+    "reference_mae": 0.39860603511069764
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 500,
+    "reference_mse": 0.4210708479325172,
+    "reference_mae": 0.4299823023893913
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.4327461583775901,
+    "reference_mae": 0.43359457234559
+  },
+  {
+    "dataset": "ETTh1",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.4260292238720576,
+    "reference_mae": 0.43931470403501083
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.15748578008998831,
+    "reference_mae": 0.27357802889935867
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.14106464629555593,
+    "reference_mae": 0.25332216051399153
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.15052639821137298,
+    "reference_mae": 0.26324154755788914
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 200,
+    "reference_mse": 0.15392432986901097,
+    "reference_mae": 0.26592695706770597
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 200,
+    "reference_mse": 0.16640753798203628,
+    "reference_mae": 0.3015645126549745
+  },
+  {
+    "dataset": "ETTh2",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 500,
+    "reference_mse": 0.15998549218136449,
+    "reference_mae": 0.26730089616406427
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.2640003862547807,
+    "reference_mae": 0.33911952119125494
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.27142589015220364,
+    "reference_mae": 0.34711242185062213
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 8000,
+    "reference_mse": 0.2553406141308771,
+    "reference_mae": 0.33379781903336037
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 8000,
+    "reference_mse": 0.3202909894711341,
+    "reference_mae": 0.35983151115788503
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.3116047794356253,
+    "reference_mae": 0.36324775100416135
+  },
+  {
+    "dataset": "ETTm1",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.29984708386763953,
+    "reference_mae": 0.34711349991251117
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.10202965394901674,
+    "reference_mae": 0.2151515579462906
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.10373567966009811,
+    "reference_mae": 0.21721913922580563
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 20000,
+    "reference_mse": 0.10312489618009456,
+    "reference_mae": 0.21627976528838938
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 2000,
+    "reference_mse": 0.12844450973118027,
+    "reference_mae": 0.24272237501924454
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.1130723924280687,
+    "reference_mae": 0.23136898948044307
+  },
+  {
+    "dataset": "ETTm2",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 200,
+    "reference_mse": 0.11165296302090083,
+    "reference_mae": 0.23445775413492834
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 8000,
+    "reference_mse": 0.2214710995625275,
+    "reference_mae": 0.2776956907301931
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 8000,
+    "reference_mse": 0.2216167536762605,
+    "reference_mae": 0.2749426919619232
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 20000,
+    "reference_mse": 0.2279299018765532,
+    "reference_mae": 0.2843024989562914
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 2000,
+    "reference_mse": 0.46956884199187776,
+    "reference_mae": 0.3932843572278386
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 2000,
+    "reference_mse": 0.4304963504108328,
+    "reference_mae": 0.3902387975236797
+  },
+  {
+    "dataset": "appliances",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.4253650581247615,
+    "reference_mae": 0.3816055212205237
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 2000,
+    "reference_mse": 0.21419134090789482,
+    "reference_mae": 0.29605566359980406
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 20000,
+    "reference_mse": 0.21899611299173932,
+    "reference_mae": 0.3092129231080201
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.22022345933016985,
+    "reference_mae": 0.31186037254381926
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 2000,
+    "reference_mse": 0.20060336974531237,
+    "reference_mae": 0.3000128517088697
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.21154026725667577,
+    "reference_mae": 0.319244193409723
+  },
+  {
+    "dataset": "bdg2",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 1000,
+    "reference_mse": 0.2042283493221908,
+    "reference_mae": 0.3035693631887782
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 8000,
+    "reference_mse": 0.23725265886995034,
+    "reference_mae": 0.31710591093800394
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 8000,
+    "reference_mse": 0.1902763574626706,
+    "reference_mae": 0.2979829077263204
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 2000,
+    "reference_mse": 0.07789611838245014,
+    "reference_mae": 0.1785384359146622
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "legacy",
+    "warmup": 2000,
+    "reference_mse": 0.0735923416645027,
+    "reference_mae": 0.1729121559470561
+  }
+]

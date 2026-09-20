@@ -1,0 +1,26 @@
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{Residual feedback and learned adapters}
+Residual correction methods differ in which errors they observe and how they map those errors to future corrections. ResCAL~\cite{rescal2022} addresses traffic forecasting with a spatial--temporal network. Its encoder combines available residuals with graph signals, and its decoder estimates future residuals. The residual input represents errors associated with multiple earlier forecasts. Our method instead summarizes a single completed forecast block and fits separate regressions for each channel and retained component. It does not require a graph. ResCAL provides a related formulation of residual correction, but we do not reproduce its graph-based architecture in the experiments.
+
+TEFL~\cite{tefl2026} selects the complete residual vector from a forecast issued one horizon earlier. Its adapter applies a learned projection, a rectified linear activation, and a second projection before adding the correction to the base forecast. Training first warms up the base model and then jointly optimizes the base model and adapter. The proposed method shares the use of a fully observed residual block. It changes the representation to fixed DCT coefficients with a separately retained endpoint, includes the current forecast coefficients, and estimates the correction regressions online. TEFL's full residual input already includes the endpoint. The distinction is its explicit retention after compression, rather than access to an otherwise unavailable observation.
+
+\subsection{Online Fourier forecasting}
+ELF~\cite{elf2025} adapts the forecasts of a fixed time series foundation model using a separate online forecaster and a weighting mechanism. The forecaster maps the Fourier representation of an observation window to future values. Frequency truncation reduces its input and output dimensions, and regularized regression is updated from newly observed data. The weighting mechanism combines its predictions with those of the fixed model according to past performance.
+
+ELF and the proposed method both use an auxiliary online model while leaving the base predictor fixed. Their regression targets and inputs differ. ELF predicts future observations from observation history. Our method predicts base-model residual coefficients from the previous residual summary and the current forecast coefficients. Consequently, a comparison between them evaluates different sources of predictive information as well as different regression sizes. We use ELF implementations adapted to our forecasting protocol and report their retained numerical storage. Section~\ref{sec:experimental_setup} specifies the changes from the original setting, so the comparison is not presented as a reproduction of the published foundation-model experiments.
+
+\subsection{Transform compression and the proposed state construction}
+The DCT is an established orthogonal transform for representing signals in a coefficient domain~\cite{ahmed1974dct}. Ridge regression provides an established regularized linear estimator~\cite{hoerl1970ridge}. Neither operation alone specifies which residual information should remain available to a forecasting correction model. In particular, truncating a transform representation and selecting a regression estimator are separate design choices.
+
+Table~\ref{tab:prior_methods} summarizes the relevant distinctions. The proposed construction combines a compressed block summary with an explicitly retained time-domain value. The endpoint augments the regression input without expanding the subspace in which the correction is reconstructed. This is a specific choice of retained information, rather than a new transform or optimization procedure.
+
+To assess that choice, we construct coefficient-only and alternative-summary controls using the same regression framework. These controls are ablations developed for this study, not previously published methods. Comparisons against learned adapters and ELF assess the complete method under the stated protocol. Comparisons with equally sized alternative summaries address the narrower question of whether choosing the endpoint is useful. This separation prevents improvements over a different regression architecture from being attributed entirely to endpoint retention.
+
+\begin{table*}[t]
+\caption{Representations and estimation procedures of related methods. The final column identifies their role in this study. Adapted comparisons use the protocol specified in Section~\ref{sec:experimental_setup}.}
+\label{tab:prior_methods}
+\centering
+\input{figure/table01}
+\end{table*}

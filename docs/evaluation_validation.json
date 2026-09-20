@@ -1,0 +1,446 @@
+{
+  "records": [
+    {
+      "stream": "legacy_ETTh1_dlinear_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.3576488706541109,
+      "mae": 0.3857676556717924,
+      "reference_mse": 0.3576488706541107,
+      "reference_mae": 0.3857676556717927,
+      "max_absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "stream": "legacy_ETTh1_dlinear_s0",
+      "candidate": "elf_full",
+      "policy": "global",
+      "mse": 0.36782380768535766,
+      "mae": 0.3867666787811911,
+      "reference_mse": 0.36782380768535755,
+      "reference_mae": 0.386766678781191,
+      "max_absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "stream": "legacy_ETTh1_patchtst_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.37612948432491705,
+      "mae": 0.40671276768199466,
+      "reference_mse": 0.3761294843249171,
+      "reference_mae": 0.4067127676819944,
+      "max_absolute_difference": 2.7755575615628914e-16
+    },
+    {
+      "stream": "legacy_ETTh1_patchtst_s0",
+      "candidate": "elf_full",
+      "policy": "global",
+      "mse": 0.3661363202808821,
+      "mae": 0.39235897495746025,
+      "reference_mse": 0.3661363202808822,
+      "reference_mae": 0.39235897495746014,
+      "max_absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "stream": "mae_joint_r2_ETTh1_dlinear_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.4299635396939074,
+      "mae": 0.44685408275773697,
+      "reference_mse": 0.4299635396939079,
+      "reference_mae": 0.4468540827577371,
+      "max_absolute_difference": 4.996003610813204e-16
+    },
+    {
+      "stream": "mae_joint_r2_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.48275762646231896,
+      "mae": 0.46971411400227153,
+      "reference_mse": 0.4827576264623193,
+      "reference_mae": 0.4697141140022716,
+      "max_absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "stream": "mae_joint_r2_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.48337068995515964,
+      "mae": 0.47000203444807287,
+      "reference_mse": 0.48337068995516,
+      "reference_mae": 0.470002034448073,
+      "max_absolute_difference": 3.885780586188048e-16
+    },
+    {
+      "stream": "mae_joint_r2_ETTh1_patchtst_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.4159773763759087,
+      "mae": 0.443360276745966,
+      "reference_mse": 0.41597737637590876,
+      "reference_mae": 0.4433602767459662,
+      "max_absolute_difference": 1.6653345369377348e-16
+    },
+    {
+      "stream": "mae_joint_r2_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.5470871473498942,
+      "mae": 0.5047950758051004,
+      "reference_mse": 0.5470871473498944,
+      "reference_mae": 0.5047950758051009,
+      "max_absolute_difference": 4.440892098500626e-16
+    },
+    {
+      "stream": "mae_joint_r2_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.5475808704223946,
+      "mae": 0.5049500337576801,
+      "reference_mse": 0.5475808704223947,
+      "reference_mae": 0.5049500337576805,
+      "max_absolute_difference": 4.440892098500626e-16
+    },
+    {
+      "stream": "mae_joint_r4_ETTh1_dlinear_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.430102213744989,
+      "mae": 0.44714745412814927,
+      "reference_mse": 0.4301022137449885,
+      "reference_mae": 0.44714745412814944,
+      "max_absolute_difference": 4.996003610813204e-16
+    },
+    {
+      "stream": "mae_joint_r4_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.4891233943745356,
+      "mae": 0.47365886785761574,
+      "reference_mse": 0.48912339437453584,
+      "reference_mae": 0.4736588678576159,
+      "max_absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "stream": "mae_joint_r4_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.48184288548649434,
+      "mae": 0.4697663052539567,
+      "reference_mse": 0.4818428854864944,
+      "reference_mae": 0.4697663052539567,
+      "max_absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "stream": "mae_joint_r4_ETTh1_patchtst_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.41694978140406175,
+      "mae": 0.44424469970118047,
+      "reference_mse": 0.4169497814040618,
+      "reference_mae": 0.4442446997011802,
+      "max_absolute_difference": 2.7755575615628914e-16
+    },
+    {
+      "stream": "mae_joint_r4_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.5508893386784034,
+      "mae": 0.5077869389700689,
+      "reference_mse": 0.5508893386784037,
+      "reference_mae": 0.507786938970069,
+      "max_absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "stream": "mae_joint_r4_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.5508447578682871,
+      "mae": 0.5077620349549083,
+      "reference_mse": 0.5508447578682875,
+      "reference_mae": 0.5077620349549085,
+      "max_absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "stream": "mae_joint_r64_ETTh1_dlinear_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.43938624840093454,
+      "mae": 0.45239953056754817,
+      "reference_mse": 0.43938624840093465,
+      "reference_mae": 0.45239953056754817,
+      "max_absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "stream": "mae_joint_r64_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.49833604071685617,
+      "mae": 0.4783432872698887,
+      "reference_mse": 0.4983360407168562,
+      "reference_mae": 0.47834328726988845,
+      "max_absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "stream": "mae_joint_r64_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.4901237073233544,
+      "mae": 0.47502179108637793,
+      "reference_mse": 0.49012370732335403,
+      "reference_mae": 0.4750217910863782,
+      "max_absolute_difference": 3.885780586188048e-16
+    },
+    {
+      "stream": "mae_joint_r64_ETTh1_patchtst_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.4105390853386768,
+      "mae": 0.4388081640132304,
+      "reference_mse": 0.4105390853386766,
+      "reference_mae": 0.43880816401323003,
+      "max_absolute_difference": 3.885780586188048e-16
+    },
+    {
+      "stream": "mae_joint_r64_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.5236183277676456,
+      "mae": 0.49350312699899385,
+      "reference_mse": 0.5236183277676455,
+      "reference_mae": 0.49350312699899374,
+      "max_absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "stream": "mae_joint_r64_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.525072702813278,
+      "mae": 0.49427335100682357,
+      "reference_mse": 0.5250727028132777,
+      "reference_mae": 0.49427335100682307,
+      "max_absolute_difference": 4.996003610813204e-16
+    },
+    {
+      "stream": "refit_ETTh1_dlinear_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.3585637688165004,
+      "mae": 0.3870227304763067,
+      "reference_mse": 0.35856376881650015,
+      "reference_mae": 0.3870227304763065,
+      "max_absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "stream": "refit_ETTh1_dlinear_s0",
+      "candidate": "elf_full",
+      "policy": "global",
+      "mse": 0.36800357278615786,
+      "mae": 0.3872908124187843,
+      "reference_mse": 0.36800357278615786,
+      "reference_mae": 0.38729081241878394,
+      "max_absolute_difference": 3.885780586188048e-16
+    },
+    {
+      "stream": "refit_ETTh1_patchtst_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.36828964681560833,
+      "mae": 0.40201241532762666,
+      "reference_mse": 0.3682896468156082,
+      "reference_mae": 0.4020124153276266,
+      "max_absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "stream": "refit_ETTh1_patchtst_s0",
+      "candidate": "elf_full",
+      "policy": "global",
+      "mse": 0.3658334047330059,
+      "mae": 0.39251852604182585,
+      "reference_mse": 0.3658334047330056,
+      "reference_mae": 0.3925185260418259,
+      "max_absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "stream": "sf_joint_r2_ETTh1_dlinear_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.43755345191586387,
+      "mae": 0.4512358889681773,
+      "reference_mse": 0.4375534519158638,
+      "reference_mae": 0.4512358889681768,
+      "max_absolute_difference": 4.996003610813204e-16
+    },
+    {
+      "stream": "sf_joint_r2_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.4927370024209269,
+      "mae": 0.47502541186938635,
+      "reference_mse": 0.49273700242092683,
+      "reference_mae": 0.47502541186938624,
+      "max_absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "stream": "sf_joint_r2_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.4930107754411273,
+      "mae": 0.47515220164092203,
+      "reference_mse": 0.49301077544112726,
+      "reference_mae": 0.47515220164092176,
+      "max_absolute_difference": 2.7755575615628914e-16
+    },
+    {
+      "stream": "sf_joint_r2_ETTh1_patchtst_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.4279705401166283,
+      "mae": 0.4531575510469285,
+      "reference_mse": 0.4279705401166282,
+      "reference_mae": 0.4531575510469283,
+      "max_absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "stream": "sf_joint_r2_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.5952187622848842,
+      "mae": 0.528397262586674,
+      "reference_mse": 0.595218762284884,
+      "reference_mae": 0.5283972625866737,
+      "max_absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "stream": "sf_joint_r2_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.5954086619582931,
+      "mae": 0.5284480827693019,
+      "reference_mse": 0.5954086619582931,
+      "reference_mae": 0.5284480827693018,
+      "max_absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "stream": "sf_joint_r4_ETTh1_dlinear_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.43425814007995844,
+      "mae": 0.4494943871800178,
+      "reference_mse": 0.43425814007995855,
+      "reference_mae": 0.44949438718001794,
+      "max_absolute_difference": 1.6653345369377348e-16
+    },
+    {
+      "stream": "sf_joint_r4_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.49551434308127706,
+      "mae": 0.4767123470626029,
+      "reference_mse": 0.49551434308127684,
+      "reference_mae": 0.4767123470626027,
+      "max_absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "stream": "sf_joint_r4_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.4884256949403194,
+      "mae": 0.4728851957638826,
+      "reference_mse": 0.48842569494032,
+      "reference_mae": 0.4728851957638827,
+      "max_absolute_difference": 6.106226635438361e-16
+    },
+    {
+      "stream": "sf_joint_r4_ETTh1_patchtst_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.42788195396372225,
+      "mae": 0.4533177788609681,
+      "reference_mse": 0.4278819539637226,
+      "reference_mae": 0.45331777886096797,
+      "max_absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "stream": "sf_joint_r4_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.5957334978002079,
+      "mae": 0.5294001572299014,
+      "reference_mse": 0.595733497800208,
+      "reference_mae": 0.5294001572299015,
+      "max_absolute_difference": 1.1102230246251565e-16
+    },
+    {
+      "stream": "sf_joint_r4_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.5951925544955766,
+      "mae": 0.528715330173823,
+      "reference_mse": 0.595192554495577,
+      "reference_mae": 0.5287153301738231,
+      "max_absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "stream": "sf_joint_r64_ETTh1_dlinear_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.4430611582229619,
+      "mae": 0.4545777276645273,
+      "reference_mse": 0.4430611582229616,
+      "reference_mae": 0.454577727664527,
+      "max_absolute_difference": 3.3306690738754696e-16
+    },
+    {
+      "stream": "sf_joint_r64_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.5034520591598538,
+      "mae": 0.4810580915885189,
+      "reference_mse": 0.5034520591598537,
+      "reference_mae": 0.4810580915885193,
+      "max_absolute_difference": 3.885780586188048e-16
+    },
+    {
+      "stream": "sf_joint_r64_ETTh1_dlinear_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.49535429603807984,
+      "mae": 0.4776038399259647,
+      "reference_mse": 0.4953542960380796,
+      "reference_mae": 0.47760383992596483,
+      "max_absolute_difference": 2.220446049250313e-16
+    },
+    {
+      "stream": "sf_joint_r64_ETTh1_patchtst_s0",
+      "candidate": "proposed",
+      "policy": "global",
+      "mse": 0.4228669951249949,
+      "mae": 0.45114273816289635,
+      "reference_mse": 0.42286699512499476,
+      "reference_mae": 0.4511427381628965,
+      "max_absolute_difference": 1.6653345369377348e-16
+    },
+    {
+      "stream": "sf_joint_r64_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "raw",
+      "mse": 0.5484547809051217,
+      "mae": 0.5113479926215702,
+      "reference_mse": 0.5484547809051212,
+      "reference_mae": 0.5113479926215704,
+      "max_absolute_difference": 4.440892098500626e-16
+    },
+    {
+      "stream": "sf_joint_r64_ETTh1_patchtst_s0",
+      "candidate": "adapter",
+      "policy": "global",
+      "mse": 0.5495108812106119,
+      "mae": 0.5124512051633026,
+      "reference_mse": 0.5495108812106118,
+      "reference_mae": 0.5124512051633026,
+      "max_absolute_difference": 1.1102230246251565e-16
+    }
+  ],
+  "tolerance": 1e-06,
+  "max_absolute_difference": 6.106226635438361e-16
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "run": "legacy_ETTh1_dlinear_s0",
+    "selected_steps": 2000,
+    "validation_mse": 0.30572262000949946,
+    "max_prediction_difference": 0.0
+  },
+  {
+    "run": "refit_ETTh1_dlinear_s0",
+    "selected_steps": 2000,
+    "validation_mse": 0.30572262000949946,
+    "max_prediction_difference": 0.0
+  }
+]

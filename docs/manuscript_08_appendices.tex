@@ -51,3 +51,26 @@ To reproduce a seed-averaged comparison from Table S2, group losses by dataset, 
 \input{figure/tableS04_settings}
 \vspace{14pt}
 }]
+
+\section{Retrospective Sensitivity and Reproduction}
+\label{app:sensitivity}
+
+The reference settings inherit earlier development choices. An exploratory endpoint comparison used the 12 legacy/seed-0 conditions before the online candidate was fixed. A prior component-count comparison considered $K=3,4,5,6$ and retained four as an intermediate storage point. The half-life of 128 was specified as four times the 32-block diagnostic window; alternatives of 32, 512, and no forgetting were also considered. Controller comparisons retained a 32-block window while varying global/channel scope and hard/blended control. Ridge coefficient one was inherited from the preceding regression implementation. These records explain known choices, but do not constitute a complete ledger of every research trial or judgment. No accuracy-optimality claim follows from them.
+
+Table~\ref{tab:s_sensitivity} reports the one-factor setting sweep. Table~\ref{tab:s_origins} reports the additional expanding-prefix intervals. The archived supplementary records contain all 31,080 period/policy result rows and 1184 candidate choices, together with block losses for the 148 streams. Recomputing period means and choices from these arrays gives zero discrepancy. The parameterized reference agrees with the earlier implementation to a maximum absolute difference below $1.03\times10^{-14}$. Tests also compare packed regression with the direct weighted least-squares solution and check that modifying future targets cannot change issued earlier predictions.
+
+\begin{table}[!tbp]
+\caption{One-factor sensitivity on the 72 main conditions over the full evaluation period. Percentages are mean reductions from Static with global blending. Bytes are median retained arrays for one fixed candidate. All unspecified settings equal the reference.}
+\label{tab:s_sensitivity}
+\centering
+\input{figure/tableS05_sensitivity}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{Expanding-prefix selection on the main 72 conditions. Entries are mean MSE reductions (\%) from Static in the indicated quarter. Prefix selection uses all earlier blocks; the oracle uses the scored quarter. Pool definitions match Table~\ref{tab:temporal_selection}.}
+\label{tab:s_origins}
+\centering
+\input{figure/tableS06_origins}
+\end{table}
+
+The repository linked in the Abstract provides versioned code, dataset URLs and ordered channel lists, input hashes, training runners, and chronological evaluation commands. Release \texttt{v0.2.0} separates an audit of the published numerical records from fresh training and evaluation. Data preparation verifies the eight prepared series, including the explicit Rat snapshot adjustments described in Section~\ref{sec:experimental_setup}. Base training can replay archived validation-selected update counts or repeat the declared validation grid; learned-adapter training repeats both warmups and widths 2, 4, and 64. Generated checkpoints and forecasts are kept separate from archived results. Training reproducibility checks and their tested scope are documented in the release; numerical agreement can depend on the software and hardware environment. The release does not claim to recover the unretrieved Rat cleaning history or automatically regenerate every publication layout.
