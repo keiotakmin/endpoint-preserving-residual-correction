@@ -67,6 +67,17 @@ def main():
     for candidate in ('proposed','endpoint_only','no_residual_dct','no_forecast','no_endpoint','persistence'):
         rs=[r for r in rows if (r['cohort'],r['segment'],r['policy'],r['candidate'])==('main','full','global',candidate)]
         print(candidate,mean(100*(1-float(r['mse'])/float(r['static_mse'])) for r in rs),'% MSE reduction; median bytes',np.median([int(r['state_bytes']) for r in rs]))
+    from report_rat_exclusion import summarize
+    subset_rows=[r for r in rows if r['segment']=='full' and r['cohort'] in ('main','mae','sf')]
+    actual=summarize(subset_rows)
+    expected=csvrows(ROOT/'results/rat_exclusion/summary.csv')
+    assert len(actual)==len(expected)==108
+    for a,b in zip(actual,expected):
+        for key in ('cohort','subset','policy','control'):assert a[key]==b[key]
+        for key in ('pairs','mse_wins','mae_wins'):assert a[key]==int(b[key])
+        for key in ('mse_reduction','mae_reduction'):
+            np.testing.assert_allclose(a[key],float(b[key]),rtol=0,atol=1e-10)
+    print('Rat-exclusion audit:',len(actual),'summaries verified; previously audited block losses unchanged')
     print('All checks passed. Numerical-record reproduction is distinct from retraining base models.')
 
 if __name__=='__main__':main()

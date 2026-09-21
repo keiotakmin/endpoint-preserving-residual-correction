@@ -20,7 +20,7 @@ The forecast origin advances by $H$ time steps. Thus, $e_{t-1}$ is fully observe
 \end{figure*}
 
 \subsection{Compressed residual state with an explicit endpoint}
-We retain the first $K$ orthonormal DCT basis vectors, including the constant component, in $U\in\mathbb{R}^{H\times K}$. For $h=1,\ldots,H$ and $j=0,\ldots,K-1$, their entries are
+We retain the first $K$ orthonormal DCT basis vectors, including the constant (DC) component, in $U\in\mathbb{R}^{H\times K}$. For $h=1,\ldots,H$ and $j=0,\ldots,K-1$, their entries are
 \begin{equation}
  U_{h,j}=\begin{cases}
  H^{-1/2}, & j=0,\\

@@ -69,4 +69,12 @@ Main summaries average relative reductions over 72 conditions. MAE/SF summaries 
 
 ## Versioned provenance
 
+### Rat-exclusion sensitivity (v0.2.1)
+
+`report_rat_exclusion.py` reads only the previously archived full-period results and block losses. It audits 6,048 candidate/policy rows from 144 main and width-64 joint streams, then generates 108 comparisons: three cohorts, with/without Rat, raw/global policies, and nine reference constructions. Main cohorts average condition-wise relative reductions; joint cohorts first average the three seed losses per dataset/backbone. The Rat-excluded sizes are 60 main conditions and ten pairs for each warmup. Additional Fox/Panther sites are not part of these cohorts.
+
+Run `python report_rat_exclusion.py`; the regenerated `runs/rat_exclusion/summary.csv` must match `results/rat_exclusion/summary.csv`. `audit.json` identifies the source CSV, all 144 block files, aggregation script, and output hashes. No models were retrained or input observations modified for this analysis. It establishes persistence of the reported input-construction gains without Rat, not robustness to alternative Rat preprocessing. The archived Rat evidence remains conditional on its documented snapshot adjustments.
+
+The mean-summary interpretation is also clarified: after scaling, the mean equals the retained DC coefficient. Since a component-wise regressor otherwise sees only its own residual coefficient, this is a duplicate residual feature only for the DC output component. For non-DC components it provides access to the DC coefficient; recoverability from the full retained state is different from redundancy within an individual regression. The original mean-control predictions and results are unchanged.
+
 `SOURCE_MANIFEST.json` preserves original repository-relative paths as provenance identifiers, not runnable paths. The snapshot's executable code and data use only paths within this repository. `RELEASE_MANIFEST.json` hashes every distributed file except itself. Use the annotated Git tag/commit to identify the version and run `reproduce.py` to check integrity.

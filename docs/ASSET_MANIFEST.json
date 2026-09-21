@@ -189,5 +189,19 @@
     "sha256": "8d972d4d001b57796e9a49b64ba1da2525ac833912d078cb20be3ecb0072bb08",
     "generator": "figure/build_review_tables.py",
     "transformation": "Select audited cohort/period/global summaries; round only displayed TeX."
+  },
+  "figure/tableS07_rat_exclusion.csv": {
+    "source": "results/tsf_edge/endpoint_rat_exclusion/summary.csv",
+    "source_sha256": "b095447fe34f3a5e3b898c8402c314467e44d3d6d8911006f9988e52751e6efb",
+    "sha256": "678c36abeb3dfe62bf3de4c2488fc219f4937e2162001cec89ce43a73d389056",
+    "generator": "figure/build_rat_exclusion_table.py",
+    "transformation": "Full-period global comparisons without Rat; seed losses averaged first for joint groups. Display rounded only in TeX."
+  },
+  "figure/tableS07_rat_exclusion.tex": {
+    "source": "results/tsf_edge/endpoint_rat_exclusion/summary.csv",
+    "source_sha256": "b095447fe34f3a5e3b898c8402c314467e44d3d6d8911006f9988e52751e6efb",
+    "sha256": "1fea818117fe0aa163c32d3aada560b818f43dbc148f5b5c1e76641ec975fe12",
+    "generator": "figure/build_rat_exclusion_table.py",
+    "transformation": "Full-period global comparisons without Rat; seed losses averaged first for joint groups. Display rounded only in TeX."
   }
 }

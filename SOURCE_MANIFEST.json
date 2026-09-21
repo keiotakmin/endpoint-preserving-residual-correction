@@ -737,15 +737,15 @@
   },
   "docs/manuscript_03_method.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/03_method.tex",
-    "sha256": "bcebdbdacf095ba9d78ef9a7186ec1d82a2d11acabd076c9e6dbb3426f4b4522"
+    "sha256": "7083865bf2dbc33be02c7b2c2ce9a208cf5102d02f310c2259e69bca9f705371"
   },
   "docs/manuscript_04_experimental_setup.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/04_experimental_setup.tex",
-    "sha256": "061e60264cc7c18a98c9bca76f27cd3ebe294049a53452a322b7b97257688e01"
+    "sha256": "07afa1709eefda07e380152289196ac96b029360932b17058f17a3ac410229a6"
   },
   "docs/manuscript_08_appendices.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/08_appendices.tex",
-    "sha256": "24fbd002e3fdbd968150dd9eb940d027e4de56ff44c70b269f50f354b460ca69"
+    "sha256": "4b018a5ba520bf746a4c6bc231322b91c53bbca2cae642c087064326fbba01db"
   },
   "LICENSE": {
     "source": "repro/tsf-edge-adaptation/LICENSE",
@@ -773,7 +773,7 @@
   },
   "docs/manuscript_06_discussion.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/06_discussion.tex",
-    "sha256": "fc69fa070582cf6749787d062a9ec0db93c9e323d3c84503a00cba32a6c71ad1"
+    "sha256": "81b3cb29de7f6971a65c3c0c05b0e174c4e3ed6db1984331940fb383371ffeda"
   },
   "docs/manuscript_01_introduction.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/01_introduction.tex",
@@ -781,7 +781,7 @@
   },
   "docs/manuscript_05_results.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/05_results.tex",
-    "sha256": "ccb698854021981d06da1621eb3ed58660b14866dd1cdf25d0d1234a6f66b844"
+    "sha256": "4d37ba4d38e86c5348d8cfa875acbc3cbce36f7a308b2c059683fdfbb32c73e5"
   },
   "docs/manuscript_02_related_work.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/02_related_work.tex",
@@ -805,7 +805,7 @@
   },
   "docs/ASSET_MANIFEST.json": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/ASSET_MANIFEST.json",
-    "sha256": "dab435529a109b868ad207979e321031e08b1a9ef6d85215f54310c124279cb2"
+    "sha256": "06704ddc587d7ed14e3c934ffe1ac1899013f2dc641028af0e79d6ed6af7b786"
   },
   "src/base_training.py": {
     "source": "experiments/tsf_edge/online_eval.py",
@@ -823,5 +823,21 @@
     "source_sha256": "0bd7108ea341957344bcb7439f95518fd76d91f47f104bd54e6f865497f4b927",
     "transformation": "78 differences from pinned cleaned source after ffill/bfill; exact archived values, no inferred historical rule.",
     "sha256": "0ef8ce6f3171df9792afcc0b9dc71ab0597879b83f8676e2e815262a3237b9a7"
+  },
+  "results/paper/tableS07_rat_exclusion.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS07_rat_exclusion.csv",
+    "sha256": "678c36abeb3dfe62bf3de4c2488fc219f4937e2162001cec89ce43a73d389056"
+  },
+  "report_rat_exclusion.py": {
+    "source": "experiments/tsf_edge/report_endpoint_rat_exclusion.py",
+    "sha256": "21ad42e9c1c032381b084b373d384078abec8711d3b052aa020284912892cd0e"
+  },
+  "results/rat_exclusion/summary.csv": {
+    "source": "results/tsf_edge/endpoint_rat_exclusion/summary.csv",
+    "sha256": "b095447fe34f3a5e3b898c8402c314467e44d3d6d8911006f9988e52751e6efb"
+  },
+  "results/rat_exclusion/audit.json": {
+    "source": "results/tsf_edge/endpoint_rat_exclusion/audit.json",
+    "sha256": "1445172bbef8290e57277aaad7eb8354761375a33de5a555755fa14bee19b690"
   }
 }

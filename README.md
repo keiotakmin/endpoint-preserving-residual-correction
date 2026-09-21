@@ -75,6 +75,10 @@ For the PyTorch components and spectral-flatness tests:
 
 ## Interpretation
 
+Release `v0.2.1` clarifies that the block-mean control duplicates the DC residual input only in the DC regression; it supplies the DC coefficient to each non-DC regression. It also adds Table S7 and an audited Rat-exclusion analysis. Without Rat, mean MSE reductions are 17.9887% from Static and 4.6646% from endpoint-only regression, with wins in all 60 remaining main conditions. The width-64 MAE/SF joint-base endpoint-only comparisons give 6.6544%/6.8083% reductions over ten seed-averaged pairs each. These are retrospective subset results, not validation of Rat's unrecovered cleaning decisions.
+
+Run `python report_rat_exclusion.py` to regenerate all 108 full-period summaries from the archived CSV and block losses under `runs/rat_exclusion/`. `reproduce.py` also checks these summaries. `results/rat_exclusion/` contains the published summary and source hashes; original forecasts and loss records are unchanged.
+
 The main 72-condition mean MSE reduction is 16.9917% relative to the static base. The full Fourier comparator is more accurate on average (19.6846%). Retained numerical arrays are not peak process memory, latency, or energy measurements.
 
 The additional validation is incorporated into manuscript Tables VII/VIII and S5/S6. It supports a benefit over endpoint-only regression while retaining exceptions to the benefit of individual inputs. The main 72-condition reductions are 16.9917% for the complete method and 12.8513% for endpoint-only regression; their median retained sizes are 4,528 and 2,288 bytes. The direct paired MSE reduction from endpoint-only regression is 4.7066%, with wins in 72/72 conditions; removing residual DCT inputs gives five exceptions on ETTh2/DLinear.
@@ -85,4 +89,4 @@ Evaluation series were used during method development. Splitting those series re
 
 Dataset sources and preprocessing scope are listed in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). The compared learned adapter is a transfer of [TEFL v1](https://arxiv.org/abs/2602.22520v1), and the Fourier comparator is a transfer of [ELF v3](https://arxiv.org/abs/2502.12920v3). These are not reproductions of every experiment or configuration in those papers.
 
-See [LICENSE](LICENSE). Cite this repository with the release tag or commit used. Release `v0.2.0` adds the raw-data-to-evaluation pipeline and incorporates the retrospective validation into the manuscript snapshot.
+See [LICENSE](LICENSE). Cite this repository with the release tag or commit used. Release `v0.2.0` added the raw-data-to-evaluation pipeline; `v0.2.1` adds the Rat-exclusion analysis and corrects the block-mean interpretation in the manuscript snapshot.
