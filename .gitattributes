@@ -1,6 +1,3 @@
 # Preserve the archived bytes used by SOURCE_MANIFEST and RELEASE_MANIFEST.
 * -text
 *.csv whitespace=cr-at-eol
-# Preserve the vendor IEEE files verbatim, including their original spacing.
-paper/*.cls whitespace=-trailing-space
-paper/*.bst whitespace=-trailing-space

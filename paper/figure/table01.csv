@@ -1,8 +1,0 @@
-Method,Auxiliary input,Correction and feedback,Retained state
-ELF (ICML 2025),Fourier features of observed history,Online auxiliary forecast and adaptive mixing,Regression and mixing statistics
-TEFL (arXiv 2026),Most recent completed residual block,Low-rank residual adapter; joint base training,Adapter weights and residual input
-δ-Adapter (ICLR 2026),Current input and forecast,Bounded input/output adapters; online updates,Adapter weights and optimizer state
-COSA (ICLR 2026),Current forecast and recent target statistics,Gated linear output correction; online updates,"Linear adapter, gate, context"
-FAC (arXiv 2026),Frequency representations of input and forecast,Gated frequency-domain calibration,"Masks, biases, optimizer state"
-OMPB (UAI 2026),Base forecast,Gated Bayesian residual head; predict then update,"Head, optimizer, source/target buffers"
-Proposed,Past residual DCT coefficients and endpoint; current forecast coefficients,Fixed DCT output subspace; complete-block update,"Ridge statistics, endpoint, mixing state"

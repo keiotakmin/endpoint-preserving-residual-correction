@@ -2,7 +2,7 @@
 
 ## What this snapshot permits
 
-1. Recompute the current 96-condition paper claims from unrounded condition-level tables.
+1. Recompute the stored 96-condition numerical summaries from unrounded condition-level tables.
 2. Recompute endpoint-position ablations from all 576 condition/policy records.
 3. Audit all additional-validation period means and candidate choices from saved block losses.
 4. Run and test the online correction and Fourier comparator implementations.
@@ -21,7 +21,7 @@ The Rat replacements were obtained by comparing the archived prepared CSV with t
 
 Respect the terms attached to the original dataset releases. Apart from the small Rat compatibility record, observations are obtained from the original providers. Dataset licenses remain those of their providers, not this repository's code license.
 
-Lookback/horizon/stride are 96/24/24 samples. The base-training/evaluation boundary is `floor(T/2)`. The final 20% of the first half is validation; normalization statistics use the whole first half. These are custom chronological partitions, not the standard ETT partitions. Detailed training settings and departures from source methods are in `manuscript_04_experimental_setup.tex`.
+Lookback/horizon/stride are 96/24/24 samples. The base-training/evaluation boundary is `floor(T/2)`. The final 20% of the first half is validation; normalization statistics use the whole first half. These are custom chronological partitions, not the standard ETT partitions. Training selections are in `config/archived_bases.json`; implementation settings are in `train.py` and `evaluate.py`.
 
 ## Individual pipeline commands
 
@@ -39,7 +39,7 @@ Use `--datasets ETTh1 --seeds 0` on each training command for the tested small s
 
 Each training directory contains `checkpoint.pt`, `forecasts.npz`, and `training.json` (metadata, selected step/epoch, training or validation logs, elapsed training time, versions, and input hash). Forecast arrays have shape `[blocks,24,channels]`; `adapter` is the raw learned-adapter forecast when present. `evaluate.py` writes per-stream block arrays, per-condition metrics, and temporal selections under `runs/evaluation/`. It evaluates the shared global blend for Fourier, not the auxiliary ELF-specific fast/slow weighting-rule analysis. Storage accounting for Fourier remains available in the reference modules and archived records.
 
-The full pipeline creates 384 checkpoints: 96 base runs (eight series, two backbones, three seeds, two training phases) and 288 learned runs (six series, two backbones, three seeds, two warmups, and base-only plus three joint widths). The 24 Fox/Panther choices added to the fixed-base group are recorded in `config/site_main96_bases_manifest.json` and merged into `config/archived_bases.json`. The older retrospective validation cohort uses 76 base runs and 72 width-64 joint runs; its 148-stream audit is retained separately from the paper's 96-condition comparison. Main results average condition-wise ratios; learned results average seed losses before forming ratios. `verify_training.py` compares individual matching MSE/MAE records rather than pooling cohorts.
+The full pipeline creates 384 checkpoints: 96 base runs (eight series, two backbones, three seeds, two training phases) and 288 learned runs (six series, two backbones, three seeds, two warmups, and base-only plus three joint widths). The 24 Fox/Panther choices added to the fixed-base group are recorded in `config/site_main96_bases_manifest.json` and merged into `config/archived_bases.json`. The older retrospective validation cohort uses 76 base runs and 72 width-64 joint runs; its 148-stream audit is retained separately from the 96-condition comparison. Main results average condition-wise ratios; learned results average seed losses before forming ratios. `verify_training.py` compares individual matching MSE/MAE records rather than pooling cohorts.
 
 ## Verification scope for v0.2.0
 
@@ -64,7 +64,7 @@ Run `python -m unittest test_pipeline` for portable input/order safeguards, and 
 
 The candidate sets are 13 setting variants and all 21 variants including summaries/input controls. They are not memory-matched. Selection costs are not represented by any one candidate's retained-byte count.
 
-The current paper's main summaries average relative reductions over 96 conditions. The retained retrospective validation summaries average over the earlier 72-condition main cohort; its MAE/SF groups first average seed losses within each of 12 dataset/backbone pairs. Temporal selection occurs per stream; selected losses are subsequently seed-averaged. Seeds and architectures sharing a dataset are not independent datasets. No significance claim follows from win counts.
+The main summaries average relative reductions over 96 conditions. The retained retrospective validation summaries average over the earlier 72-condition main cohort; its MAE/SF groups first average seed losses within each of 12 dataset/backbone pairs. Temporal selection occurs per stream; selected losses are subsequently seed-averaged. Seeds and architectures sharing a dataset are not independent datasets. No significance claim follows from win counts.
 
 ## Versioned provenance
 

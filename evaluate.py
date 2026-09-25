@@ -1,4 +1,4 @@
-"""Evaluate recreated forecasts, without changing archived paper records."""
+"""Evaluate recreated forecasts without changing archived numerical records."""
 import argparse
 import csv
 import json

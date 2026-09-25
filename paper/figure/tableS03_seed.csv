@@ -1,6 +1,0 @@
-Comparison,MSE seed 0 (%),MSE seed 1 (%),MSE seed 2 (%),MAE seed 0 (%),MAE seed 1 (%),MAE seed 2 (%)
-Proposed vs. adapter (MAE),16.231997,17.317896,16.392336,8.516030,9.184859,8.690561
-Proposed vs. adapter (SF),17.457770,17.466604,16.591508,9.181128,9.221429,8.717725
-Joint adapter vs. base-only (MAE),6.421494,6.836992,4.588566,3.681381,4.414829,2.787398
-Joint adapter vs. base-only (SF),7.252826,6.176257,5.439287,4.342909,3.515228,3.224804
-Joint adapter: SF vs. MAE,-1.486176,-0.637588,-0.537910,-0.714885,-0.322550,-0.300475

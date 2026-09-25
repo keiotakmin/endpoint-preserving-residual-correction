@@ -1,4 +1,4 @@
-"""Compare newly generated full-period losses with the archived paper tables."""
+"""Compare newly generated full-period losses with archived numerical tables."""
 import argparse
 import csv
 import json

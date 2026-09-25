@@ -72,7 +72,7 @@ def main():
     for name in args.datasets.split(','):
         file=args.data_dir/(name+'.csv');values=load_csv(file)
         digest=hashlib.sha256(np.ascontiguousarray(values,dtype='<f4').tobytes()).hexdigest()
-        if digest!=specs[name]['float32_sha256']:raise ValueError(f'{name}: data differs from the paper; prepare_data.py first')
+        if digest!=specs[name]['float32_sha256']:raise ValueError(f'{name}: data differs from the archived input; prepare_data.py first')
         data,n,c=prep(values,device=args.device);a=int(n*.8)
         for backbone in args.backbones.split(','):
             if backbone not in ('dlinear','patchtst'):raise ValueError(backbone)
