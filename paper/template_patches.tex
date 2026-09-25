@@ -1,0 +1,49 @@
+% Compatibility patches inherited from the existing Overleaf project.
+\makeatletter
+\def\@oddfoot{\raisebox{8pt}{%
+  \hbox to 0pc{\hbox to \textwidth{\mbox{}\hfill{\footerpagefont\thepage}}}%
+  }}
+\def\@evenfoot{\raisebox{8pt}{%
+  \hbox to 0pc{\hbox to \textwidth{{\footerpagefont\thepage}\mbox{}\hfill}}\hspace*{1.8pc}%
+  }}
+\def\ps@titlepage{%
+  \def\@oddhead{\parbox[t]{\textwidth}{\mbox{}\\[-6.3mm]\mbox{}\nheaderfont
+    \color{accessblue}\headName\hfill\headerlogo{\raisebox{-2pt}{\,}}\color{black}%
+    \vspace*{-1.5mm}\par\hrulefill}}
+  \def\@evenhead{\parbox[t]{\textwidth}{\mbox{}\\[-6.3mm]\mbox{}\headerlogo\hfill\nheaderfont
+    \color{accessblue}\headName{\raisebox{-2pt}{\,}}\color{black}%
+    \vspace*{-1.5mm}\par\hrulefill}}
+  \def\@oddfoot{\raisebox{3pt}{%
+    \hbox to 0pc{\hbox to \textwidth{\mbox{}\hfill{\footervolfont\@pubid}\hfill\mbox{}}}%
+    \hbox to 0pc{\hbox to \textwidth{\mbox{}\hfill{\footerpagefont\thepage}}}%
+    }}
+  \def\@evenfoot{\raisebox{3pt}{%
+    \hbox to 0pc{\hbox to \textwidth{{\footerpagefont\thepage}\hfill}\mbox{}}\hspace*{1.8pc}%
+    \hspace*{-1.8pc}\hbox to 0pc{\hbox to \textwidth{\mbox{}\hfill{\footervolfont\@pubid}%
+      \hfill\mbox{}}}%
+  }}
+}
+% CAPTION WRAPPING FOR WIDE FIGURES.  ieeeaccess.cls typesets the caption of a figure wider
+% than \columnwidth inside \begin{tabular}{@{}l@{}}...\end{tabular}, and an `l' cell never
+% breaks a line: a caption longer than the text width runs off the page instead of wrapping
+% (Fig. 1's was cut mid-sentence at the right margin).  Same macro, same styling, but the wide
+% branch wraps in a \parbox as wide as the figure it belongs to.  \xfigwd is the class's own
+% record of that width, set by \Figure.
+\long\def\@makecaption#1#2{%
+  \ifx\@captype\@IEEEtablestring
+    \begin{flushleft}%
+      \vspace*{5pt}%
+      {\vss\color{accessblue}\tablecapheadfont #1. \ }{\raggedright\tablecapfont#2\vss}%
+    \end{flushleft}%
+    \@IEEEtablecaptionsepspace
+  \else
+    \@IEEEfigurecaptionsepspace
+    \setbox\@tempboxa\hbox{{\color{accessblue}\figcapheadfont #1. \ }}%
+    \ifdim\xfigwd>\columnwidth
+      \mbox{}\hfill\parbox[t]{\xfigwd}{%
+        \noindent\raggedright\unhbox\@tempboxa\figcapfont#2}\hfill\mbox{}%
+    \else
+      {\vss\raggedright\noindent\unhbox\@tempboxa\figcapfont#2\vss}%
+    \fi
+  \fi\vskip 1pt plus 1pt minus 1pt}
+\makeatother

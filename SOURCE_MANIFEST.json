@@ -77,7 +77,7 @@
   },
   "results/paper/table01.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table01.csv",
-    "sha256": "3e1fd2ef05eda2f641b27acc3f4fe008a75c5baa333c0d1feda64cd69e847ebb"
+    "sha256": "138d8d8d6286cccc681efac07d8d3dea61591f544724e7363bf2720d0af5f5b5"
   },
   "results/paper/table02.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table02.csv",
@@ -85,7 +85,7 @@
   },
   "results/paper/table03.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table03.csv",
-    "sha256": "19dbc5e10fbbe79622186ee54def9b29fe0df82a5ffe5eccc3f2bd9ec6908bc1"
+    "sha256": "a898a9064255d1d51bf6ba953c73f606545f23c9d6d9c1e1e648c85123138f41"
   },
   "results/paper/table04.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table04.csv",
@@ -101,7 +101,7 @@
   },
   "results/paper/tableS01_all_conditions.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS01_all_conditions.csv",
-    "sha256": "f28e2acfe95d68f00fedb4faf7355ad5db81957969f90fafb71c23841231698b"
+    "sha256": "3e76cb87584155674ea18de568084044853ba08b219e43e7ae6c183ca733d5ac"
   },
   "results/paper/tableS02_learned_all.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS02_learned_all.csv",
@@ -737,15 +737,15 @@
   },
   "docs/manuscript_03_method.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/03_method.tex",
-    "sha256": "7083865bf2dbc33be02c7b2c2ce9a208cf5102d02f310c2259e69bca9f705371"
+    "sha256": "866bbac2193c03d73d11415060ea5f3a25db9389fccc34bad325d53262a2c47f"
   },
   "docs/manuscript_04_experimental_setup.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/04_experimental_setup.tex",
-    "sha256": "07afa1709eefda07e380152289196ac96b029360932b17058f17a3ac410229a6"
+    "sha256": "521ab3a68abdd45f87abf557bce94ff8c159e85afa5272d1bb69b646b03a9e27"
   },
   "docs/manuscript_08_appendices.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/08_appendices.tex",
-    "sha256": "4b018a5ba520bf746a4c6bc231322b91c53bbca2cae642c087064326fbba01db"
+    "sha256": "7de7b8186fb7872646293cc05af3a03a6c8242a25b58cbafa3ae91c910e4ae8b"
   },
   "LICENSE": {
     "source": "repro/tsf-edge-adaptation/LICENSE",
@@ -765,27 +765,27 @@
   },
   "docs/manuscript_07_conclusion.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/07_conclusion.tex",
-    "sha256": "0b734629290618731b846f0c3593d833ef42d39886ee6dd3b25528b29df4b3ee"
+    "sha256": "02e340cfca3c1583f314150b95dbdaf3571f60727499ccbd6ddff9e195e15913"
   },
   "docs/manuscript_00_abstract.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/00_abstract.tex",
-    "sha256": "4f875179b24eaa13483eb2f03875c45388c9289add158ac30d01e9fd40b85006"
+    "sha256": "0c9c3b2324139bf2e9870412f92adf54939cfb23a61f85ae484eb9f16c5eb55d"
   },
   "docs/manuscript_06_discussion.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/06_discussion.tex",
-    "sha256": "81b3cb29de7f6971a65c3c0c05b0e174c4e3ed6db1984331940fb383371ffeda"
+    "sha256": "803dad85b79a8bdd8fe073b0528be57cc8e3a6d8f949586e6d8ddee9190733dc"
   },
   "docs/manuscript_01_introduction.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/01_introduction.tex",
-    "sha256": "8b105a72dbc0b43ee910d9fe1baa6b539f2ab0b1b5516186b52602048844d191"
+    "sha256": "8e165f171349b4ada1612e9907675cbd47e6b863d1ab15eec360c935d6b17ecb"
   },
   "docs/manuscript_05_results.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/05_results.tex",
-    "sha256": "4d37ba4d38e86c5348d8cfa875acbc3cbce36f7a308b2c059683fdfbb32c73e5"
+    "sha256": "299ec15b1d397e4adacbed3755c7f5f83de2b247afc7d86412a1c73fe491b6cb"
   },
   "docs/manuscript_02_related_work.tex": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/02_related_work.tex",
-    "sha256": "184823ca6ed254bbbbf8cb877217c5dd7d62d8b522461fa25d12d9c2896c94bd"
+    "sha256": "d41c4b0f54c1dc7bd3bf3de83ec892015f478607156188afac92ad9982946901"
   },
   "results/paper/table07.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table07.csv",
@@ -805,7 +805,7 @@
   },
   "docs/ASSET_MANIFEST.json": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/ASSET_MANIFEST.json",
-    "sha256": "06704ddc587d7ed14e3c934ffe1ac1899013f2dc641028af0e79d6ed6af7b786"
+    "sha256": "3f7f532abf89ef55095c88de789a0ba64de892abedc8ff8609ed67c29c1c38d1"
   },
   "src/base_training.py": {
     "source": "experiments/tsf_edge/online_eval.py",
@@ -839,5 +839,290 @@
   "results/rat_exclusion/audit.json": {
     "source": "results/tsf_edge/endpoint_rat_exclusion/audit.json",
     "sha256": "1445172bbef8290e57277aaad7eb8354761375a33de5a555755fa14bee19b690"
+  },
+  "results/paper/table04_tefl_joint.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table04_tefl_joint.csv",
+    "sha256": "30814971714e0b7acdad64b5ce922510b217876adba39409645493a831c01b69"
+  },
+  "results/paper/tableS06_temporal_selection.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS06_temporal_selection.csv",
+    "sha256": "e6bba609db541a778e45e856ca0d51c84a05a93572982afde53735932d426dc5"
+  },
+  "results/paper/table05_endpoint_selection.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table05_endpoint_selection.csv",
+    "sha256": "0700f01c1174c6f5b4e0c9bc649928c54bc9187d9ddaf9a124da1ae7e674ebf0"
+  },
+  "results/paper/table06_input_ablation.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table06_input_ablation.csv",
+    "sha256": "6df5ae804d51b902bdb6e35ff5f3e65526d492ae2f4fd94b1b9d6f6d3b75fa6c"
+  },
+  "results/paper/tableS05_sensitivity_conditions.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS05_sensitivity_conditions.csv",
+    "sha256": "06fe526ee9f90a6538a9d93981a82367c3c1dece47a331ebb46fd608a4f71559"
+  },
+  "results/paper/tableS02_width64_training.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS02_width64_training.csv",
+    "sha256": "785339356bfd8411f097762c96cf10411a969bbc54568abf1084137c902b7a72"
+  },
+  "results/paper/table03_all_conditions.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table03_all_conditions.csv",
+    "sha256": "7e5ad0125e10fa181e607aa12a31bbf532f0113ed5cecaff4e927d3ef6a857e0"
+  },
+  "results/paper/table03_overview.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table03_overview.csv",
+    "sha256": "d1041864164b238d75496d2ed8891f7430ff8ad257946476710eccf3eb0f7ce5"
+  },
+  "results/paper/table07_setting_sensitivity.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table07_setting_sensitivity.csv",
+    "sha256": "3e85f5462100ad323039fbea09737c2f17e5484c64fdcb51a393daa238574e96"
+  },
+  "paper/main.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/main.tex",
+    "sha256": "2c5b612963d78b80cea66af47b38ebfc2a4120a1eb78703c7992e7a31f3c963d"
+  },
+  "paper/metadata.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/metadata.tex",
+    "sha256": "5d0441af90bbd3fb423983375240f9f595fbe9c1346b163ce009d714c7510ba2"
+  },
+  "paper/preamble.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/preamble.tex",
+    "sha256": "2411a82026d7e76960ea7818bcb3e9599ee4fcfa5f22b5783578ce22aa1f948c"
+  },
+  "paper/template_patches.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/template_patches.tex",
+    "sha256": "47a7b8ef0a3c6e76e55bd356fa159bc98871951333cb7e4607c9e61c67e284ae"
+  },
+  "paper/refs.bib": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/refs.bib",
+    "sha256": "03159b4779b329eeddbde95286d35d840e6fdd11a23ac71054985e0c45b74f8d"
+  },
+  "paper/ieeeaccess.cls": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/ieeeaccess.cls",
+    "sha256": "d83c1934b3b540fd57ea6cb671b572b80df455139bacf4787e5d2baa9cb758c7"
+  },
+  "paper/IEEEtran.cls": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/IEEEtran.cls",
+    "sha256": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+  },
+  "paper/Logo.png": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/Logo.png",
+    "sha256": "7e04ba7f0c579f3765941680e2a19437e15a81b84a138d73c54bd4afead752cd"
+  },
+  "paper/notaglineLogo.png": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/notaglineLogo.png",
+    "sha256": "955e9a07fb35ffbc8a41597b8c6e7ec4cedf6a8652f5c73a33957044aae64900"
+  },
+  "paper/bullet.png": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/bullet.png",
+    "sha256": "754772e36aab389556f98c14f5deeb4031e792b68a766dc5f9766e76e114fffc"
+  },
+  "paper/main.pdf": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/main.pdf",
+    "sha256": "354c9d98feb1bf8b1f5a3b37b0193b4e4ec142db348d83734f51d28c5425177c"
+  },
+  "paper/ASSET_MANIFEST.json": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/ASSET_MANIFEST.json",
+    "sha256": "3f7f532abf89ef55095c88de789a0ba64de892abedc8ff8609ed67c29c1c38d1"
+  },
+  "paper/OUTLINE_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/OUTLINE_JA.md",
+    "sha256": "138d5b55013868c34ae705784856a17bc1e7e5daaaf85a2dbddeb630ccd48674"
+  },
+  "paper/ABSTRACT_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/ABSTRACT_JA.md",
+    "sha256": "71907913973134bdcba9a997ff6ea67941e4f80845c9bd8f3de76d777cb17be3"
+  },
+  "paper/APPENDIX_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/APPENDIX_JA.md",
+    "sha256": "5fdf6afe9e61c22facc4eddf3a2101c565e74b7abe16c3b382cf6931f4514eae"
+  },
+  "paper/SECTION_III_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/SECTION_III_JA.md",
+    "sha256": "76bc4e78394403b0055ec95d91282fc3151bfaa69824e50e366343d8e5546366"
+  },
+  "paper/SECTION_V_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/SECTION_V_JA.md",
+    "sha256": "588530d4da3694a59a40a17842c452e27eec6fa726be0408cc0da46b2ac3a68d"
+  },
+  "paper/SECTION_II_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/SECTION_II_JA.md",
+    "sha256": "b2d652a177e0aa6444026771d47024d0ea6877fb1651be3ee121340cfcf2e4c1"
+  },
+  "paper/SECTION_IV_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/SECTION_IV_JA.md",
+    "sha256": "138fd5aa80bde24f40f07ae5193e661bee6f47df8788bff9adcc4b2ae49fac61"
+  },
+  "paper/SECTION_VII_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/SECTION_VII_JA.md",
+    "sha256": "a8fdd2beb9ab8ddd1cd3bbaad40a3e0588127c8d51e284c6d462c0c282e5d3b3"
+  },
+  "paper/SECTION_I_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/SECTION_I_JA.md",
+    "sha256": "3acc79b72a26ea09652bbcd2e698bb412a1c18c6eb52b6a1680607622401135c"
+  },
+  "paper/SECTION_VI_JA.md": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/SECTION_VI_JA.md",
+    "sha256": "406306d119cd320efb13dffa75502c69144f16d9e4322eefeffa4d259c9e55d1"
+  },
+  "paper/sections/07_conclusion.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/07_conclusion.tex",
+    "sha256": "02e340cfca3c1583f314150b95dbdaf3571f60727499ccbd6ddff9e195e15913"
+  },
+  "paper/sections/08_appendices.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/08_appendices.tex",
+    "sha256": "7de7b8186fb7872646293cc05af3a03a6c8242a25b58cbafa3ae91c910e4ae8b"
+  },
+  "paper/sections/00_abstract.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/00_abstract.tex",
+    "sha256": "0c9c3b2324139bf2e9870412f92adf54939cfb23a61f85ae484eb9f16c5eb55d"
+  },
+  "paper/sections/03_method.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/03_method.tex",
+    "sha256": "866bbac2193c03d73d11415060ea5f3a25db9389fccc34bad325d53262a2c47f"
+  },
+  "paper/sections/06_discussion.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/06_discussion.tex",
+    "sha256": "803dad85b79a8bdd8fe073b0528be57cc8e3a6d8f949586e6d8ddee9190733dc"
+  },
+  "paper/sections/01_introduction.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/01_introduction.tex",
+    "sha256": "8e165f171349b4ada1612e9907675cbd47e6b863d1ab15eec360c935d6b17ecb"
+  },
+  "paper/sections/05_results.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/05_results.tex",
+    "sha256": "299ec15b1d397e4adacbed3755c7f5f83de2b247afc7d86412a1c73fe491b6cb"
+  },
+  "paper/sections/04_experimental_setup.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/04_experimental_setup.tex",
+    "sha256": "521ab3a68abdd45f87abf557bce94ff8c159e85afa5272d1bb69b646b03a9e27"
+  },
+  "paper/sections/02_related_work.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/sections/02_related_work.tex",
+    "sha256": "d41c4b0f54c1dc7bd3bf3de83ec892015f478607156188afac92ad9982946901"
+  },
+  "paper/figure/fig01_method.pdf": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/fig01_method.pdf",
+    "sha256": "5b57f119052eb317193ccc655a15fe0c21ae97bd77bd02659c4c1ccbc9125bfe"
+  },
+  "paper/figure/fig02_accuracy_storage.pdf": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/fig02_accuracy_storage.pdf",
+    "sha256": "ad2dc9d94e60f0159f792bff3d83b03a2dec7e0a561e2c288d4b1cf75bc45217"
+  },
+  "paper/figure/fig05_input_ablation.pdf": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/fig05_input_ablation.pdf",
+    "sha256": "7960612b205b9229c1b2feb95ef68f480053e0ef105d08fb7ccd5e492d9a0b61"
+  },
+  "paper/figure/fig06_overview_sensitivity.pdf": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/fig06_overview_sensitivity.pdf",
+    "sha256": "91a8931ce430d57e0735813986fea11f1af1eb1868d386bb750d7d89996ef814"
+  },
+  "paper/figure/table01.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table01.tex",
+    "sha256": "467050e7fd95047d101defe91d73fdfcd21014c4d81e335c77355f42a6f1ee1f"
+  },
+  "paper/figure/table02.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table02.tex",
+    "sha256": "882f3f6fc60e79067773dd42e571eefc91e06d3255b8be5d6d0b042e0c3b6bb6"
+  },
+  "paper/figure/table03.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table03.tex",
+    "sha256": "007d47e078c3888639a25b5e73341205d8925b0799b587cad5cf4cc498670b4c"
+  },
+  "paper/figure/table04.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table04.tex",
+    "sha256": "b980eb46a2771e84c01e69ae5d31b4f3e32122166f632f3446639bb1ef99b1c3"
+  },
+  "paper/figure/table05_endpoint_selection.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table05_endpoint_selection.tex",
+    "sha256": "ba0e5553102d1c47f14911ffb5b620db7e22e3cc19b6a06439b744a16c3e68a2"
+  },
+  "paper/figure/table07_setting_sensitivity.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table07_setting_sensitivity.tex",
+    "sha256": "0b7f02daf4cda1ccd7416944c8fb6e007acaee4a3163ee7d4344b8ddc5a5631d"
+  },
+  "paper/figure/tableS04_settings.tex": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS04_settings.tex",
+    "sha256": "9e0847bb907746e6f4ddead8005b3a18a19e2e79c0f3f8f3b07c0c13a0f539f2"
+  },
+  "config/site_main96_bases_manifest.json": {
+    "source": "results/tsf_edge/site_main96/bases_manifest.json",
+    "sha256": "ff8b033da69d7527483c9b056fd7a32c016befca6983b8840fbafdab126237d6"
+  },
+  "config/archived_bases.json": {
+    "source": "config/site_main96_bases_manifest.json + results/paper/tableS01_all_conditions.csv",
+    "transformation": "Preserved 72 archived main choices and derived 24 Fox/Panther choices from audited site records.",
+    "sha256": "2e57a756a0f11a9a27235411df258857dbb8a21a9c12528c4c6f5d8f0d868d50"
+  },
+  "paper/figure/table04_tefl_joint.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table04_tefl_joint.csv",
+    "sha256": "30814971714e0b7acdad64b5ce922510b217876adba39409645493a831c01b69"
+  },
+  "paper/figure/tableS03_seed.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS03_seed.csv",
+    "sha256": "9d19d9060361317e0a169049cd7900dcde98379edccda3c7271aed55fc4c9936"
+  },
+  "paper/figure/table01.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table01.csv",
+    "sha256": "138d8d8d6286cccc681efac07d8d3dea61591f544724e7363bf2720d0af5f5b5"
+  },
+  "paper/figure/tableS06_temporal_selection.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS06_temporal_selection.csv",
+    "sha256": "e6bba609db541a778e45e856ca0d51c84a05a93572982afde53735932d426dc5"
+  },
+  "paper/figure/table05_endpoint_selection.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table05_endpoint_selection.csv",
+    "sha256": "0700f01c1174c6f5b4e0c9bc649928c54bc9187d9ddaf9a124da1ae7e674ebf0"
+  },
+  "paper/figure/tableS01_all_conditions.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS01_all_conditions.csv",
+    "sha256": "3e76cb87584155674ea18de568084044853ba08b219e43e7ae6c183ca733d5ac"
+  },
+  "paper/figure/table06_input_ablation.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table06_input_ablation.csv",
+    "sha256": "6df5ae804d51b902bdb6e35ff5f3e65526d492ae2f4fd94b1b9d6f6d3b75fa6c"
+  },
+  "paper/figure/tableS05_sensitivity_conditions.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS05_sensitivity_conditions.csv",
+    "sha256": "06fe526ee9f90a6538a9d93981a82367c3c1dece47a331ebb46fd608a4f71559"
+  },
+  "paper/figure/tableS02_width64_training.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS02_width64_training.csv",
+    "sha256": "785339356bfd8411f097762c96cf10411a969bbc54568abf1084137c902b7a72"
+  },
+  "paper/figure/table03_all_conditions.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table03_all_conditions.csv",
+    "sha256": "7e5ad0125e10fa181e607aa12a31bbf532f0113ed5cecaff4e927d3ef6a857e0"
+  },
+  "paper/figure/table03_overview.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table03_overview.csv",
+    "sha256": "d1041864164b238d75496d2ed8891f7430ff8ad257946476710eccf3eb0f7ce5"
+  },
+  "paper/figure/tableS02_learned_all.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS02_learned_all.csv",
+    "sha256": "e78880ebe9dbf0e408e9f407fae0c63b3ab7728b8ce28fc862418fbaf0be377f"
+  },
+  "paper/figure/fig02_dataset_points.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/fig02_dataset_points.csv",
+    "sha256": "3a8a3760014639f665d600469b60f511ba7fd5f799abee3599598e7b8fcc30f1"
+  },
+  "paper/figure/table02.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table02.csv",
+    "sha256": "24ee268ec7a713bdb251d23c0f745b9729c9466517522e712eb6873232289e38"
+  },
+  "paper/figure/table03.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table03.csv",
+    "sha256": "a898a9064255d1d51bf6ba953c73f606545f23c9d6d9c1e1e648c85123138f41"
+  },
+  "paper/figure/table04.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table04.csv",
+    "sha256": "30814971714e0b7acdad64b5ce922510b217876adba39409645493a831c01b69"
+  },
+  "paper/figure/table07_setting_sensitivity.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table07_setting_sensitivity.csv",
+    "sha256": "3e85f5462100ad323039fbea09737c2f17e5484c64fdcb51a393daa238574e96"
+  },
+  "paper/IEEEtran.bst": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/IEEEtran.bst",
+    "sha256": "314f0ece704568faf827011bac498650691b2b5ee06320720830e782416d5a5f"
   }
 }

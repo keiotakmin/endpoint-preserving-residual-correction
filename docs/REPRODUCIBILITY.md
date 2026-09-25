@@ -2,7 +2,7 @@
 
 ## What this snapshot permits
 
-1. Recompute the main numerical claims from unrounded condition-level tables.
+1. Recompute the current 96-condition paper claims from unrounded condition-level tables.
 2. Recompute endpoint-position ablations from all 576 condition/policy records.
 3. Audit all additional-validation period means and candidate choices from saved block losses.
 4. Run and test the online correction and Fourier comparator implementations.
@@ -30,7 +30,6 @@ After installing `requirements-training.txt`, run from the repository root:
 ```bash
 python prepare_data.py
 python train.py --group base
-python train.py --group base --datasets bdg2_fox,bdg2_panther --seeds 0 --phases legacy
 python train.py --group learned
 python evaluate.py --sensitivity --fourier
 python verify_training.py
@@ -40,11 +39,11 @@ Use `--datasets ETTh1 --seeds 0` on each training command for the tested small s
 
 Each training directory contains `checkpoint.pt`, `forecasts.npz`, and `training.json` (metadata, selected step/epoch, training or validation logs, elapsed training time, versions, and input hash). Forecast arrays have shape `[blocks,24,channels]`; `adapter` is the raw learned-adapter forecast when present. `evaluate.py` writes per-stream block arrays, per-condition metrics, and temporal selections under `runs/evaluation/`. It evaluates the shared global blend for Fourier, not the auxiliary ELF-specific fast/slow weighting-rule analysis. Storage accounting for Fourier remains available in the reference modules and archived records.
 
-The full pipeline creates 364 checkpoints: 76 base runs and 288 learned runs (six datasets, two backbones, three seeds, two warmups, and base-only plus three joint widths). The retrospective validation cohort uses only the 76 base runs and 72 width-64 joint runs; additional pipeline width/base-only streams must not be pooled into the paper's 148-stream summary. Main results average condition-wise ratios; learned results average seed losses before forming ratios. `verify_training.py` compares individual matching MSE/MAE records rather than pooling cohorts.
+The full pipeline creates 384 checkpoints: 96 base runs (eight series, two backbones, three seeds, two training phases) and 288 learned runs (six series, two backbones, three seeds, two warmups, and base-only plus three joint widths). The 24 Fox/Panther choices added to the fixed-base group are recorded in `config/site_main96_bases_manifest.json` and merged into `config/archived_bases.json`. The older retrospective validation cohort uses 76 base runs and 72 width-64 joint runs; its 148-stream audit is retained separately from the paper's 96-condition comparison. Main results average condition-wise ratios; learned results average seed losses before forming ratios. `verify_training.py` compares individual matching MSE/MAE records rather than pooling cohorts.
 
 ## Verification scope for v0.2.0
 
-All eight downloads/prepared inputs were checked against their archived numerical hashes. On an NVIDIA A100 with Python 3.11, NumPy 1.26.4, pandas 2.1.4, and PyTorch 2.7.0, fresh ETTh1/seed-0 training covered both backbones, legacy/refit, both warmups, all three widths, and matched base-only runs (20 checkpoints). The 16 runs with archived per-run base MSE references matched to a maximum absolute difference of `1.12e-16`; see `training_validation.json`. The remaining four are the separately trained base-only controls. Evaluation checks are recorded in `evaluation_validation.json`. This validates the packaged route on that subset; it is not a claim that all 364 checkpoints were retrained for this release. Different hardware/software may produce larger floating-point differences. `verify_training.py` defaults to an absolute tolerance of `1e-6` and reports deviations for inspection.
+All eight downloads/prepared inputs were checked against their archived numerical hashes. On an NVIDIA A100 with Python 3.11, NumPy 1.26.4, pandas 2.1.4, and PyTorch 2.7.0, fresh ETTh1/seed-0 training covered both backbones, legacy/refit, both warmups, all three widths, and matched base-only runs (20 checkpoints). The 16 runs with archived per-run base MSE references matched to a maximum absolute difference of `1.12e-16`; see `training_validation.json`. The remaining four are the separately trained base-only controls. Evaluation checks are recorded in `evaluation_validation.json`. This validates the packaged route on that subset; it is not a claim that all 384 checkpoints were retrained for this release. Different hardware/software may produce larger floating-point differences. `verify_training.py` defaults to an absolute tolerance of `1e-6` and reports deviations for inspection.
 
 The 44 matching corrected MSE/MAE comparisons (including full Fourier and learned-adapter raw/global forecasts) agree to a maximum absolute difference of `6.11e-16`. All 21 candidates' block losses agree exactly on the eight smoke streams represented in the archived retrospective cohort (`sensitivity_validation.json`). Reloading all 20 saved checkpoints reproduces their base and adapter predictions exactly (`checkpoint_validation.json`). The full seven-milestone validation grid was additionally rerun for ETTh1/DLinear/seed 0, selected 2,000 updates as archived, and reproduced both legacy/refit forecasts (`grid_validation.json`). Environment details are in `environment.json`.
 
@@ -65,7 +64,7 @@ Run `python -m unittest test_pipeline` for portable input/order safeguards, and 
 
 The candidate sets are 13 setting variants and all 21 variants including summaries/input controls. They are not memory-matched. Selection costs are not represented by any one candidate's retained-byte count.
 
-Main summaries average relative reductions over 72 conditions. MAE/SF summaries first average seed losses within each of 12 dataset/backbone pairs. Temporal selection occurs per stream; selected losses are subsequently seed-averaged. Seeds and architectures sharing a dataset are not independent datasets. No significance claim follows from win counts.
+The current paper's main summaries average relative reductions over 96 conditions. The retained retrospective validation summaries average over the earlier 72-condition main cohort; its MAE/SF groups first average seed losses within each of 12 dataset/backbone pairs. Temporal selection occurs per stream; selected losses are subsequently seed-averaged. Seeds and architectures sharing a dataset are not independent datasets. No significance claim follows from win counts.
 
 ## Versioned provenance
 

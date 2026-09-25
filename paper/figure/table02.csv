@@ -1,0 +1,9 @@
+Dataset,Length,Channels,Evaluation start,Evaluation blocks
+ETTh1,17420,7,8710,362
+ETTh2,17420,7,8710,362
+ETTm1,69680,7,34840,1451
+ETTm2,69680,7,34840,1451
+appliances,19735,26,9867,411
+bdg2,17544,15,8772,365
+bdg2_fox,17544,15,8772,365
+bdg2_panther,17544,15,8772,365

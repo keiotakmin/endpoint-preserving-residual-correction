@@ -51,7 +51,7 @@ def save_run(directory,model,data,n,meta,training,adapter=None):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--group',choices=['base','learned'],default='base')
-    parser.add_argument('--datasets',default='ETTh1,ETTh2,ETTm1,ETTm2,appliances,bdg2')
+    parser.add_argument('--datasets',default=None)
     parser.add_argument('--backbones',default='dlinear,patchtst')
     parser.add_argument('--seeds',default='0,1,2')
     parser.add_argument('--phases',default='legacy,refit')
@@ -62,6 +62,9 @@ def main():
     parser.add_argument('--output',type=Path,default=ROOT/'runs/training')
     parser.add_argument('--device',default='cuda' if torch.cuda.is_available() else 'cpu')
     args=parser.parse_args();torch.set_num_threads(2)
+    if args.datasets is None:
+        args.datasets='ETTh1,ETTh2,ETTm1,ETTm2,appliances,bdg2'
+        if args.group=='base':args.datasets+=',bdg2_fox,bdg2_panther'
     specs=json.loads((ROOT/'config/datasets.json').read_text())
     archived=json.loads((ROOT/'config/archived_bases.json').read_text())
     lookup={(r['dataset'],r['backbone'],r['seed'],r['phase']):r for r in archived}

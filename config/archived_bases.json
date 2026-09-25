@@ -653,8 +653,53 @@
     "seed": 0,
     "phase": "legacy",
     "warmup": 8000,
-    "reference_mse": 0.23725265886995034,
-    "reference_mae": 0.31710591093800394
+    "reference_mse": 0.2372526588699503,
+    "reference_mae": 0.3171059109380039
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 8000,
+    "reference_mse": 0.2351892860078212,
+    "reference_mae": 0.3105632038170231
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.2381683133851615,
+    "reference_mae": 0.3188474879185776
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.2385137057040893,
+    "reference_mae": 0.3185297449935427
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.2393939464392653,
+    "reference_mae": 0.3222495356018403
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.2363967731895128,
+    "reference_mae": 0.3155418242591663
   },
   {
     "dataset": "bdg2_fox",
@@ -666,13 +711,103 @@
     "reference_mae": 0.2979829077263204
   },
   {
+    "dataset": "bdg2_fox",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 8000,
+    "reference_mse": 0.178914805926664,
+    "reference_mae": 0.2891902672104119
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.1845938965389207,
+    "reference_mae": 0.2940718444077863
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.1774665404722834,
+    "reference_mae": 0.2872662049268533
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.1835186399890558,
+    "reference_mae": 0.2927541421756142
+  },
+  {
+    "dataset": "bdg2_fox",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.1754773751672312,
+    "reference_mae": 0.2859294277113035
+  },
+  {
     "dataset": "bdg2_panther",
     "backbone": "dlinear",
     "seed": 0,
     "phase": "legacy",
     "warmup": 2000,
-    "reference_mse": 0.07789611838245014,
+    "reference_mse": 0.0778961183824501,
     "reference_mae": 0.1785384359146622
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "dlinear",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 2000,
+    "reference_mse": 0.0773265981251636,
+    "reference_mae": 0.177811826713068
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 20000,
+    "reference_mse": 0.0783383119311524,
+    "reference_mae": 0.1793496516915571
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "dlinear",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 20000,
+    "reference_mse": 0.0766093468180305,
+    "reference_mae": 0.1766298462537482
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 20000,
+    "reference_mse": 0.0805036916586102,
+    "reference_mae": 0.1821439269362954
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "dlinear",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 20000,
+    "reference_mse": 0.0766935526463754,
+    "reference_mae": 0.1770248197118518
   },
   {
     "dataset": "bdg2_panther",
@@ -682,5 +817,50 @@
     "warmup": 2000,
     "reference_mse": 0.0735923416645027,
     "reference_mae": 0.1729121559470561
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "patchtst",
+    "seed": 0,
+    "phase": "refit",
+    "warmup": 2000,
+    "reference_mse": 0.0810435353678488,
+    "reference_mae": 0.1890732648971033
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "legacy",
+    "warmup": 4000,
+    "reference_mse": 0.0747446557941097,
+    "reference_mae": 0.1751959008725725
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "patchtst",
+    "seed": 1,
+    "phase": "refit",
+    "warmup": 4000,
+    "reference_mse": 0.072169150618005,
+    "reference_mae": 0.1696844123948982
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "legacy",
+    "warmup": 2000,
+    "reference_mse": 0.0729775293055062,
+    "reference_mae": 0.1719463960494782
+  },
+  {
+    "dataset": "bdg2_panther",
+    "backbone": "patchtst",
+    "seed": 2,
+    "phase": "refit",
+    "warmup": 2000,
+    "reference_mse": 0.076768485190991,
+    "reference_mae": 0.1830177645667254
   }
 ]

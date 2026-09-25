@@ -1,0 +1,23 @@
+\begingroup\fontsize{9}{11}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Setting & MSE (\%) & MAE (\%) & Bytes \\
+\midrule
+Reference ($K=4$) & 15.40 & 9.35 & 6,352 \\
+$K=1$ & 11.13 & 6.47 & 2,056 \\
+$K=2$ & 13.10 & 7.85 & 3,488 \\
+$K=3$ & 14.49 & 8.79 & 4,920 \\
+$K=6$ & 16.00 & 9.76 & 9,216 \\
+$K=8$ & 16.40 & 10.08 & 12,080 \\
+$\lambda=0.1$ & 15.19 & 9.17 & 6,352 \\
+$\lambda=10$ & 15.18 & 9.46 & 6,352 \\
+Half-life 32 & 15.43 & 9.72 & 6,352 \\
+Half-life 512 & 14.82 & 8.96 & 6,352 \\
+No forgetting & 14.47 & 8.76 & 6,352 \\
+Window 8 & 15.24 & 9.35 & 5,968 \\
+Window 128 & 14.98 & 9.07 & 7,888 \\
+\bottomrule
+\end{tabular}
+\endgroup

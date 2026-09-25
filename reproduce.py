@@ -17,17 +17,28 @@ def main():
         assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==expected,name
     print('Snapshot SHA-256 checks:',len(manifest),'files OK')
     rows=csvrows(ROOT/'results/paper/tableS01_all_conditions.csv')
-    main=[r for r in rows if r['group']=='real'];assert len(main)==72 and len(rows)==76
-    for name,col in [('Proposed','mse'),('ELF','elf_mse')]:
-        print(name,'main mean MSE reduction (%):',mean(100*(1-float(r[col])/float(r['static_mse'])) for r in main))
-    print('Proposed MSE/MAE wins vs static (all 76):',*[sum(float(r[m])<float(r['static_'+m]) for r in rows) for m in ('mse','mae')])
+    assert len(rows)==96 and len({(r['dataset'],r['backbone'],r['phase'],r['seed']) for r in rows})==96
+    for name,col in [('EPOC','mse'),('ELF full','elf_mse')]:
+        reduction=mean(100*(1-float(r[col])/float(r['static_mse'])) for r in rows)
+        print(name,'96-condition mean MSE reduction (%):',reduction)
+        assert abs(reduction-{'EPOC':15.40,'ELF full':19.29}[name])<0.005
+    mae_reduction=mean(100*(1-float(r['mae'])/float(r['static_mae'])) for r in rows)
+    assert abs(mae_reduction-9.35)<0.005
+    print('EPOC 96-condition mean MAE reduction (%):',mae_reduction)
+    print('EPOC MSE/MAE wins vs static:',*[sum(float(r[m])<float(r['static_'+m]) for r in rows) for m in ('mse','mae')])
+    arms=csvrows(ROOT/'results/paper/table03_all_conditions.csv')
+    assert len(arms)==672 and {r['method'] for r in arms}=={'Static','Proposed','ELF','COSA','FAC','OMPB','$\\delta$-Adapter'}
+    for method,expected in [('Proposed',6352),('ELF',474048)]:
+        sizes=[int(r['state_bytes']) for r in arms if r['method']==method]
+        assert len(sizes)==96 and np.median(sizes)==expected
+    assert len(csvrows(ROOT/'results/paper/table05_endpoint_selection.csv'))==9
     learned=csvrows(ROOT/'results/paper/tableS02_learned_all.csv');assert len(learned)==864
     g=defaultdict(list)
     for r in learned:g[(r['kind'],r['rank'],r['dataset'],r['backbone'],r['arm'])].append(float(r['mse']))
     for kind in ('mae','sf'):
         for width in ('2','4','64'):
             gain=[100*(1-mean(v)/mean(g[(*k[:-1],'adapter_global')])) for k,v in g.items() if k[0]==kind and k[1]==width and k[-1]=='boundary']
-            print('Proposed vs learned adapter:',kind,width,mean(gain),'% MSE reduction')
+            print('EPOC vs learned adapter:',kind,width,mean(gain),'% MSE reduction')
     positions=json.loads((ROOT/'results/endpoint_positions.json').read_text());assert len(positions)==576
     g=defaultdict(list)
     for r in positions:

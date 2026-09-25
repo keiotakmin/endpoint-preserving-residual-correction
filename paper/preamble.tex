@@ -1,0 +1,36 @@
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\makeatletter
+\renewcommand{\fnum@algorithm}{Algorithm~\thealgorithm:}
+\makeatother
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{textcomp}
+\usepackage{url}
+\input{template_patches}
+\graphicspath{{figure/}}
+\newcommand{\methodname}{EPOC}
+\newcommand{\skeletonnote}[1]{\par\noindent\textit{Drafting note: #1}\par}
+
+% Permit compact mixed text/float pages and keep section boundaries controlled.
+\usepackage{placeins}
+\setcounter{topnumber}{4}
+\setcounter{dbltopnumber}{4}
+\setcounter{totalnumber}{6}
+\renewcommand{\topfraction}{.92}
+\renewcommand{\dbltopfraction}{.92}
+\renewcommand{\textfraction}{.08}
+\renewcommand{\floatpagefraction}{.75}
+\renewcommand{\dblfloatpagefraction}{.75}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{12pt plus 2pt minus 2pt}
+
+% Remove a stray printed period in the supplied class's appendices macro.
+\usepackage{etoolbox}
+\patchcmd{\appendices}{\def\thesectiondis{APPENDIX \Alph{section}}.}{\def\thesectiondis{APPENDIX \Alph{section}}}{}{\PackageError{endpoint}{Appendices patch failed}{Check the class definition.}}
+
+% Make the repository URL clickable without changing its printed style.
+\usepackage[hidelinks,bookmarks=false]{hyperref}

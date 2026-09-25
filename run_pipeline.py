@@ -19,9 +19,6 @@ def main():
     common=['--datasets','ETTh1','--seeds','0'] if args.smoke else []
     if args.device: common += ['--device',args.device]
     run('train.py', '--group','base',*common)
-    if not args.smoke:
-        run('train.py','--group','base','--datasets','bdg2_fox,bdg2_panther',
-            '--seeds','0','--phases','legacy',*(['--device',args.device] if args.device else []))
     run('train.py', '--group','learned',*common)
     run('evaluate.py', '--sensitivity',*(['--fourier'] if args.fourier else []))
     run('verify_training.py')

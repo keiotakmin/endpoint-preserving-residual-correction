@@ -1,0 +1,229 @@
+{
+  "cells": 24,
+  "protocol": "Main: L=96 H=24, legacy selected warmup and refit at same step, seeds 0-2",
+  "source_sha256": {
+    "experiments/tsf_edge/run_site_main96_bases.py": "755af60cb7a3d88913b450e5a6cfddd6a3e4e3d54f68e126af61d820ba98fe46",
+    "experiments/tsf_edge/online_eval.py": "067489d02c3ca5209b1d3874d42c71ae9f227cac9884247f9c8ca14c499b00c5",
+    "results/tsf_edge/lr_fairness.jsonl": "0c6f6f7699b0a3e1199a0b4776685e9820bb2a4e390659f3e8ba947b106bcddf",
+    "experiments/tsf_edge/data/bdg2_fox.csv": "a4cecbc54524001fae3ca2ef95c49e056bd9538af0c8a0268d9768fbb92d678d",
+    "experiments/tsf_edge/data/bdg2_panther.csv": "6ad22b68eb2a48dd704ed4a5fb6fb10e2801ebb7ae42f12ea8ee17c06f5a2dad"
+  },
+  "cells_audit": [
+    {
+      "tag": "legacy_bdg2_fox_dlinear_s0",
+      "source": "results/tsf_edge/cosa_fac_sites/base_bdg2_fox_dlinear_s0.pt",
+      "warmup": 8000,
+      "static_mse": 0.23725265886995037,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "e5307539642cb798f2ef809f58c43eb6683335b950eb650487f1cc43173ca522",
+      "checkpoint_sha256": "4fa87b28e6ccb4c46d43aecc3136ea05c0d4d57648e577faac0020f66091411f"
+    },
+    {
+      "tag": "refit_bdg2_fox_dlinear_s0",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 8000,
+      "static_mse": 0.2351892860078212,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "2567ee4a2f9b4f2d5b226f2df6f577ecee22fb7b44b77dac37902feaf3bbcafc",
+      "checkpoint_sha256": "da5c77360f1b801e1232dc499e7320d3aa3acf1c3dfd8e00b0f4973cc5032c87"
+    },
+    {
+      "tag": "legacy_bdg2_fox_dlinear_s1",
+      "source": "deterministic replay of archived selected warmup",
+      "warmup": 4000,
+      "static_mse": 0.23816831338516156,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "e2105584e5eb539fcfae010daffad3cff9d4232a09fcf297f2baa1c20001fc10",
+      "checkpoint_sha256": "101aa384d2521a2c35eb9379200c0c4477cefd7f4aef60ea8dd25f73be89732c"
+    },
+    {
+      "tag": "refit_bdg2_fox_dlinear_s1",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 4000,
+      "static_mse": 0.23851370570408928,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "91722e00db2f8b086dfc3747271b17748e4642bc82329e97327e3f9c0a0c3c46",
+      "checkpoint_sha256": "cb141cb3b48974aa0e4a399c32338d78581195ad2a0d043e422109db28440570"
+    },
+    {
+      "tag": "legacy_bdg2_fox_dlinear_s2",
+      "source": "deterministic replay of archived selected warmup",
+      "warmup": 4000,
+      "static_mse": 0.23939394643926543,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "897c27c21cd31465d06358ea615047916fb0cf7d780cd4b7f037834a0f63c1c2",
+      "checkpoint_sha256": "6c014ff3bae4131a22f9a7596b4f598310dc053a014e85d110567146ee3751c9"
+    },
+    {
+      "tag": "refit_bdg2_fox_dlinear_s2",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 4000,
+      "static_mse": 0.23639677318951283,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "9189546ff38516d18d3c72a114423945749a0cf84e7b6f073310b2d75358fd29",
+      "checkpoint_sha256": "143e0e8aa18633cf9bffec111fcb842991f8a0b70f04c094f3e2a2a8a09b0800"
+    },
+    {
+      "tag": "legacy_bdg2_fox_patchtst_s0",
+      "source": "results/tsf_edge/cosa_fac_sites/base_bdg2_fox_patchtst_s0.pt",
+      "warmup": 8000,
+      "static_mse": 0.19027635746267052,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "49c3fff925e655a8ca8eb0aadbe0d87fe1f1a7382a9959549887670f43105c0d",
+      "checkpoint_sha256": "209330b26d0cf7f9e71023c95926b04740fe14fe4b07681b1d7fb79b5d35c946"
+    },
+    {
+      "tag": "refit_bdg2_fox_patchtst_s0",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 8000,
+      "static_mse": 0.178914805926664,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "c9189756d02246d5ae328f80d446e7118d95609e5b9508d926acacae8caf1b5b",
+      "checkpoint_sha256": "678ad420f07dd2512555a121ca74fbb076286b32d4c63adb9e3eb0dec66557f9"
+    },
+    {
+      "tag": "legacy_bdg2_fox_patchtst_s1",
+      "source": "deterministic replay of archived selected warmup",
+      "warmup": 4000,
+      "static_mse": 0.18459389653892075,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "3f68706b9e164dfb703a215c6786d0b1c35e0002df656d33c7655821bf8abdd7",
+      "checkpoint_sha256": "adcea7a8dfb133dd5dbd206e6d3a0dde2857b5eaaa2210ddf85e8d42f93a35c2"
+    },
+    {
+      "tag": "refit_bdg2_fox_patchtst_s1",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 4000,
+      "static_mse": 0.1774665404722834,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "3d3479b6e18543b62485b9850aabc173e80c0d51dd96c4c31dafc3fd46dfc96c",
+      "checkpoint_sha256": "8b99d830de4edf98ac19cc2f0d781374e482bcba210b3497f3b58e141d8aa00e"
+    },
+    {
+      "tag": "legacy_bdg2_fox_patchtst_s2",
+      "source": "deterministic replay of archived selected warmup",
+      "warmup": 4000,
+      "static_mse": 0.18351863998905588,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "0b95388060e30657548439a987623784643bced83069e915e06f306f59a52b6c",
+      "checkpoint_sha256": "0e19d090ba5a7e2d892efc1de9d0a2b7d182f2060a2c34e62823ef43e3be0a6e"
+    },
+    {
+      "tag": "refit_bdg2_fox_patchtst_s2",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 4000,
+      "static_mse": 0.17547737516723125,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "52a3d2ae44f7908937c0563248d169c5f64c9fdcdd8bbedfef7a103e3b5dbd21",
+      "checkpoint_sha256": "ceab535b123031f9c682e53f7e470e805db0e6882d7651c4fc511d5881cad756"
+    },
+    {
+      "tag": "legacy_bdg2_panther_dlinear_s0",
+      "source": "results/tsf_edge/cosa_fac_sites/base_bdg2_panther_dlinear_s0.pt",
+      "warmup": 2000,
+      "static_mse": 0.07789611838245016,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "e650b8da8d92549fc224bf0015b2da663fdf1a112ca987d074d2776b05d8f7dc",
+      "checkpoint_sha256": "4e9b820c5ab3824ad5aecca90332c14158a56f0d5e6021a1251e64cc6f8d1e04"
+    },
+    {
+      "tag": "refit_bdg2_panther_dlinear_s0",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 2000,
+      "static_mse": 0.07732659812516365,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "b1ab0dd57e1f495d22bfe6aeb33065477026aa879097b67c25a6639fc833edb9",
+      "checkpoint_sha256": "442dd950a1f6fb800ef19902fe9a51f0a6708dc979531460e8f0897c4f99657d"
+    },
+    {
+      "tag": "legacy_bdg2_panther_dlinear_s1",
+      "source": "deterministic replay of archived selected warmup",
+      "warmup": 20000,
+      "static_mse": 0.07833831193115243,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "463ebcd520e921ba8ce8eb8b2aaa0a12238014cf235c05e0d12bce3eda156f67",
+      "checkpoint_sha256": "c17eb19a1951efbd2e58ed393662838545c7d7ddcd5c6437a6b7835112b639de"
+    },
+    {
+      "tag": "refit_bdg2_panther_dlinear_s1",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 20000,
+      "static_mse": 0.07660934681803061,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "9561969c758735ed4981c106c5d4dff10b79e6a44a8f97040da7cec5d26a0e3f",
+      "checkpoint_sha256": "4cdf24372826f32b31e0335b9add56daae0be6d639a4d96d2a1424a5edb1dfb5"
+    },
+    {
+      "tag": "legacy_bdg2_panther_dlinear_s2",
+      "source": "deterministic replay of archived selected warmup",
+      "warmup": 20000,
+      "static_mse": 0.08050369165861022,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "a917228c1169381c613b88a7ee7dab3576a10b1231a0f559fa00a3a54c9b30c0",
+      "checkpoint_sha256": "d507cee431df5dea1285c116657316e3e34528d33de3bf2bbff999fd7df2af5f"
+    },
+    {
+      "tag": "refit_bdg2_panther_dlinear_s2",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 20000,
+      "static_mse": 0.07669355264637549,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "3713b27df3b9d390ea8d10fb05222f300c4228d9911d35d2e443328599a94ce0",
+      "checkpoint_sha256": "606cf2559411216084bcb431b73b58e5ceab84921c715c8882c24d05032fc22f"
+    },
+    {
+      "tag": "legacy_bdg2_panther_patchtst_s0",
+      "source": "results/tsf_edge/cosa_fac_sites/base_bdg2_panther_patchtst_s0.pt",
+      "warmup": 2000,
+      "static_mse": 0.0735923416645027,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "3389cd488e113fedce59cb09be1409e4a5cfa8256e0b6d08abcaa3c79c924d25",
+      "checkpoint_sha256": "7b404308f8cb432d6055bfe08265fc7167dc7ca7ec0ff166d8e0a19c5e2a4f4a"
+    },
+    {
+      "tag": "refit_bdg2_panther_patchtst_s0",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 2000,
+      "static_mse": 0.08104353536784886,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "d91a1a7cae649ac17b6e1699ec617a8f0b30725b8806f0e1ff9d1af947df1254",
+      "checkpoint_sha256": "72484da5c6cf4176081a565ea1ccecc04e8b4ef54eecd6fa42a0fb2b35978f3c"
+    },
+    {
+      "tag": "legacy_bdg2_panther_patchtst_s1",
+      "source": "deterministic replay of archived selected warmup",
+      "warmup": 4000,
+      "static_mse": 0.07474465579410976,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "54e9e0595b4b47ad8b3bb97575ef1ee10d1c328340b1f6a9b28ba96bd33b1b01",
+      "checkpoint_sha256": "1a34552915528cd899560ccbc152be78d04be3fcd100d08289c608f730c1398e"
+    },
+    {
+      "tag": "refit_bdg2_panther_patchtst_s1",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 4000,
+      "static_mse": 0.07216915061800507,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "cb19c892fa94c91ff3f395b5b3c86d1b5aa93c1b60be79514a0a87ed92ec9d71",
+      "checkpoint_sha256": "2dc5dd9ce6d2432481f181bbca163e2115cf20ad5ce23c2c0aefc2221847a4d5"
+    },
+    {
+      "tag": "legacy_bdg2_panther_patchtst_s2",
+      "source": "deterministic replay of archived selected warmup",
+      "warmup": 2000,
+      "static_mse": 0.07297752930550629,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "1b46b45703742dcf470f90e36e1d85934be11b6f912ea860dc455bb242f47e44",
+      "checkpoint_sha256": "c9ca401c7db4025e07f9cbb03631ea464575c90dc19f19e76be7d6d025a13fa4"
+    },
+    {
+      "tag": "refit_bdg2_panther_patchtst_s2",
+      "source": "refit from the same selected legacy warmup",
+      "warmup": 2000,
+      "static_mse": 0.07676848519099104,
+      "replay_normalized_rmse": 0.0,
+      "pred_sha256": "c576a3be72cbd1ffe0a2a7694cbd3d2e38783778564f244d23c6406f9d2a1dbd",
+      "checkpoint_sha256": "94c7ecc872f443db75d8fa60ac36e072e73977c8d23369f5383396458b645a5d"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+\documentclass{ieeeaccess}
+\input{preamble}
+\begin{document}
+\makeatletter
+\let\@ieeeaccessdoifont\doifont
+\def\doifont{\@ieeeaccessdoifont\color{white}}
+\makeatother
+\doi{}
+\input{metadata}
+\begin{abstract}
+\input{sections/00_abstract}
+\end{abstract}
+\begin{keywords}
+Time series forecasting, residual correction, online regression, compressed state, multi-horizon forecasting.
+\end{keywords}
+\titlepgskip=-15pt
+\maketitle
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_experimental_setup}
+\input{sections/05_results}
+\input{sections/06_discussion}
+\input{sections/07_conclusion}
+\input{sections/08_appendices}
+\raggedbottom
+% References for completed sections.
+% Let the bibliography flow after the appendices.
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\EOD
+\end{document}

@@ -1,0 +1,17 @@
+% Focused structural comparison; numerical transfers are specified in Section IV.
+\begingroup\fontsize{9}{11}\selectfont
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.20\linewidth}>{\raggedright\arraybackslash}p{.24\linewidth}>{\raggedright\arraybackslash}p{.28\linewidth}>{\raggedright\arraybackslash}p{.20\linewidth}@{}}
+\toprule
+Method & Auxiliary input & Correction and feedback & Retained state \\
+\midrule
+ELF (ICML 2025) & Fourier features of observed history & Online auxiliary forecast and adaptive mixing & Regression and mixing statistics \\[3pt]
+TEFL (arXiv 2026) & Most recent completed residual block & Low-rank residual adapter; joint base training & Adapter weights and residual input \\[3pt]
+$\delta$-Adapter (ICLR 2026) & Current input and forecast & Bounded input/output adapters; online updates & Adapter weights and optimizer state \\[3pt]
+COSA (ICLR 2026) & Current forecast and recent target statistics & Gated linear output correction; online updates & Linear adapter, gate, context \\[3pt]
+FAC (arXiv 2026) & Frequency representations of input and forecast & Gated frequency-domain calibration & Masks, biases, optimizer state \\[3pt]
+OMPB (UAI 2026) & Base forecast & Gated Bayesian residual head; predict then update & Head, optimizer, source/target buffers \\[3pt]
+EPOC & Past residual DCT coefficients and endpoint; current forecast coefficients & Fixed DCT output subspace; complete-block update & Ridge statistics, endpoint, mixing state \\
+\bottomrule
+\end{tabular}
+\endgroup

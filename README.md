@@ -1,10 +1,12 @@
-# Endpoint-Preserving Compressed Residual Correction
+# EPOC: Endpoint-Preserving Online Correction
 
-Reference code and numerical records for **Endpoint-Preserving Compressed Residual Correction for Multi-Horizon Time Series Forecasting**, by Takumi Fujimoto and Hiroaki Nishi.
+Reference code, numerical records, and manuscript for **EPOC: Endpoint-Preserving Online Correction With Compressed Residual State for Multi-Horizon Time Series Forecasting**, by Takumi Fujimoto and Hiroaki Nishi.
 
-The method augments compressed DCT residual coefficients with the final observed residual and current base-forecast coefficients. A separate online ridge regression predicts each retained component and channel; a causal rolling controller blends the reconstructed correction with a frozen base forecast.
+EPOC corrects a fixed multi-horizon forecaster after each completed target block. It retains low-order DCT coefficients and the final residual of the previous block, shares that endpoint across component-wise online ridge regressions, and blends the reconstructed correction with the base forecast.
 
-## Reproduce the reported numerical summaries
+The current paper evaluates eight series, two backbones, three seeds, and two base-training phases: **96 fixed-base conditions**. EPOC reduces mean condition-wise MSE by 15.40% and MAE by 9.35% from the uncorrected base with 6,352 B median retained auxiliary state. Full ELF reaches 19.29% mean MSE reduction with 474,048 B. The archived CSV identifiers `Proposed` and `proposed` denote EPOC.
+
+## Verify the published records
 
 Python 3.11 was used. From a fresh clone:
 
@@ -12,13 +14,12 @@ Python 3.11 was used. From a fresh clone:
 python -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
 .venv/bin/python reproduce.py
-.venv/bin/python -m unittest discover -s src -p test_endpoint_review_validation.py
-.venv/bin/python -m unittest discover -s src -p test_elf_real.py
+.venv/bin/python -m unittest discover -s src -p 'test_*.py'
 ```
 
-`reproduce.py` checks the published source/result hashes, recomputes the principal paper summaries, and audits all 31,080 additional-validation result rows and 1,184 temporal-selection records against 148 block files. No GPU or original dataset is needed for these checks. The output distinguishes main legacy/refit conditions from separately trained MAE/SF joint bases.
+`reproduce.py` checks the release hashes and the current 96-condition summaries, then audits the previously released block-level validation records. This numerical audit needs neither a GPU nor the original datasets. The historical validation cohort contains 72 main conditions, four initial Fox/Panther conditions, and 72 width-64 joint-base streams; it is separate from the current 96-condition paper comparison.
 
-This command audits numerical records. For fresh training and evaluation, use the separate pipeline below. Raw datasets and trained checkpoints are downloaded or generated locally, rather than bundled in Git.
+The [current PDF](paper/main.pdf), [buildable LaTeX source](paper/main.tex), [outline](paper/OUTLINE_JA.md), and Japanese section translations are in `paper/`. The associated CSVs are in `results/paper/`: `tableS01_all_conditions.csv` has the 96 EPOC/base/ELF condition records, `table03_all_conditions.csv` has all 672 seven-method records, and `table05_endpoint_selection.csv` holds the nine equal-size endpoint comparisons. `SOURCE_MANIFEST.json` links copied files to the research workspace; `RELEASE_MANIFEST.json` hashes the published checkout.
 
 ## Recreate data, train, and evaluate
 
@@ -27,66 +28,35 @@ This command audits numerical records. For fresh training and evaluation, use th
 .venv/bin/python run_pipeline.py --smoke --fourier
 ```
 
-The smoke run downloads ETTh1 and trains seed 0 with both backbones, legacy/refit variants, both learned-adapter warmups, and widths 2/4/64 (20 checkpoints). It evaluates all 21 correction candidates, temporal selection, learned adapters, and seven Fourier configurations, then compares matching losses with the paper tables. CUDA is used when available; `--device cpu` is supported. The full study is substantially more expensive:
+The smoke route downloads ETTh1 and trains seed 0 with both backbones, both base-training phases, both learned-adapter warmups, and widths 2/4/64. It evaluates the correction candidates and Fourier comparator against the archived records. CUDA is used when available; `--device cpu` is supported. The full route is substantially more expensive:
 
 ```bash
 .venv/bin/python run_pipeline.py --fourier
 ```
 
-This prepares all eight series and trains the 72 main base conditions, four additional-site conditions, and 288 learned-group runs (including matched base-only runs). Outputs go to ignored `data/` and `runs/` directories. Completed training runs are reused; incomplete run directories raise an error. Fresh results never replace the archived paper records. See [commands, preprocessing qualifications, and tested scope](docs/REPRODUCIBILITY.md).
+The full route prepares all eight series, trains the 96 fixed bases and 288 learned-group runs, and writes outputs under ignored `data/` and `runs/`. Completed training runs are reused. The published seven-method comparison also includes transferred comparator records in `results/paper/`; this command does not retrain every external comparator. See [reproduction scope and data preparation](docs/REPRODUCIBILITY.md). Raw datasets and checkpoints are downloaded or generated locally and are not bundled in Git.
 
-Base training defaults to archived **validation-selected** update counts. To repeat the original selection grid, use `train.py --selection validation-grid --output runs/grid-training`; this trains through 20,000 updates and selects only on the first-half validation interval. Supply that output path to `evaluate.py --input runs/grid-training`. The 78 explicitly recorded Rat snapshot adjustments preserve the evaluated input; their historical cleaning rationale is not recoverable.
+## Apply EPOC to supplied forecasts
 
-## Apply the correction to supplied forecasts
-
-Create an NPZ with `base` and `target` arrays of shape `[blocks, horizon, channels]`. Targets must be ordered chronologically, and each completed target block becomes available only after its forecast was issued.
+Create an NPZ with `base` and `target` arrays of shape `[blocks, horizon, channels]` in chronological order:
 
 ```bash
 .venv/bin/python replay.py forecasts.npz --output correction.npz
 ```
 
-This uses the paper configuration: horizon 24, K=4, ridge=1, half-life=128 blocks, and blending window=32. The output includes issued predictions, raw/global block MSE and MAE, issued blending coefficients, and retained-array counts. The evaluator scores a block before updating from its target. The NPZ interface is an offline replay of that order, not permission to access future observations during live use.
+The replay uses horizon 24, `K=4`, ridge strength 1, a 128-block forgetting half-life, and a 32-block blending window. It issues each corrected forecast before updating from that block's target. The output includes corrected predictions, block losses, blending coefficients, and retained-array counts.
 
-## Contents
+## Repository map
 
 | Path | Contents |
 |---|---|
-| `src/boundary_context.py` | Original packed online regression and endpoint correction |
-| `src/endpoint_review_validation.py` | Parameterized implementation, input ablations, and 21 fixed sensitivity candidates |
-| `src/elf_real.py`, `src/elf_capacity.py`, `src/elf_transfer.py` | Transferred Fourier comparator and equivalent storage representations |
-| `src/backbones.py` | Evaluated compact DLinear/PatchTST definitions and preprocessing |
-| `prepare_data.py`, `config/` | Pinned downloads, ordered meter IDs, numerical hashes, Rat snapshot adjustments, selected base-training steps |
-| `train.py`, `src/base_training.py` | Base selection/refit and paired learned-adapter training |
-| `evaluate.py`, `verify_training.py`, `run_pipeline.py` | Chronological evaluation, comparison with archived losses, and complete pipeline |
-| `src/learned_residual.py`, `src/joint_residual.py`, `src/spectral_residual.py`, `src/spectral_seed.py`, `src/small_joint.py` | Learned adapter and paired training components |
-| `results/paper/` | Main and supplementary numerical tables for the manuscript |
-| `results/endpoint_positions.json` | Condition/seed-level first, middle, mean, and endpoint comparisons |
-| `results/validation/` | Additional input ablations and retrospective selection sensitivity |
-| `docs/manuscript_*.tex` | Method, experimental setup, and supplementary-record definitions from the associated manuscript snapshot |
-| `SOURCE_MANIFEST.json` | Source-relative provenance and SHA-256 for copied artifacts |
-| `RELEASE_MANIFEST.json` | SHA-256 of the complete published snapshot, excluding Git internals and this manifest itself |
+| `paper/` | Current 13-page manuscript PDF, compilable source, figures, tables, outline, and Japanese translations |
+| `results/paper/` | Condition-level and aggregate numerical records for the manuscript |
+| `src/boundary_context.py`, `src/endpoint_review_validation.py` | EPOC implementation and input/setting controls |
+| `src/elf_real.py`, `src/elf_capacity.py`, `src/elf_transfer.py` | Fourier comparator and storage accounting |
+| `src/backbones.py`, `prepare_data.py`, `train.py`, `evaluate.py` | Base models, pinned preprocessing, training, and chronological evaluation |
+| `config/archived_bases.json`, `config/site_main96_bases_manifest.json` | Audited training selections for the 96 fixed-base conditions |
+| `results/validation/`, `results/rat_exclusion/` | Retained retrospective audits from the earlier release |
+| `docs/REPRODUCIBILITY.md` | Dataset sources, verified scope, and detailed pipeline commands |
 
-For the PyTorch components and spectral-flatness tests:
-
-```bash
-.venv/bin/python -m pip install -r requirements-training.txt
-.venv/bin/python -m unittest discover -s src -p test_spectral_residual.py
-```
-
-## Interpretation
-
-Release `v0.2.1` clarifies that the block-mean control duplicates the DC residual input only in the DC regression; it supplies the DC coefficient to each non-DC regression. It also adds Table S7 and an audited Rat-exclusion analysis. Without Rat, mean MSE reductions are 17.9887% from Static and 4.6646% from endpoint-only regression, with wins in all 60 remaining main conditions. The width-64 MAE/SF joint-base endpoint-only comparisons give 6.6544%/6.8083% reductions over ten seed-averaged pairs each. These are retrospective subset results, not validation of Rat's unrecovered cleaning decisions.
-
-Run `python report_rat_exclusion.py` to regenerate all 108 full-period summaries from the archived CSV and block losses under `runs/rat_exclusion/`. `reproduce.py` also checks these summaries. `results/rat_exclusion/` contains the published summary and source hashes; original forecasts and loss records are unchanged.
-
-The main 72-condition mean MSE reduction is 16.9917% relative to the static base. The full Fourier comparator is more accurate on average (19.6846%). Retained numerical arrays are not peak process memory, latency, or energy measurements.
-
-The additional validation is incorporated into manuscript Tables VII/VIII and S5/S6. It supports a benefit over endpoint-only regression while retaining exceptions to the benefit of individual inputs. The main 72-condition reductions are 16.9917% for the complete method and 12.8513% for endpoint-only regression; their median retained sizes are 4,528 and 2,288 bytes. The direct paired MSE reduction from endpoint-only regression is 4.7066%, with wins in 72/72 conditions; removing residual DCT inputs gives five exceptions on ETTh2/DLinear.
-
-Evaluation series were used during method development. Splitting those series retrospectively does not create an untouched test set. Prefix selection uses only preceding block losses, but its comparison with a suffix-selected oracle is a finite-candidate diagnostic, not a measurement of the entire research process's selection bias. The tested K=4 is an accuracy/storage choice, not the accuracy-optimal configuration.
-
-## Sources and license
-
-Dataset sources and preprocessing scope are listed in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). The compared learned adapter is a transfer of [TEFL v1](https://arxiv.org/abs/2602.22520v1), and the Fourier comparator is a transfer of [ELF v3](https://arxiv.org/abs/2502.12920v3). These are not reproductions of every experiment or configuration in those papers.
-
-See [LICENSE](LICENSE). Cite this repository with the release tag or commit used. Release `v0.2.0` added the raw-data-to-evaluation pipeline; `v0.2.1` adds the Rat-exclusion analysis and corrects the block-mean interpretation in the manuscript snapshot.
+Dataset sources and license conditions are listed in [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md). The compared learned adapter follows [TEFL v1](https://arxiv.org/abs/2602.22520v1); the Fourier comparator follows [ELF v3](https://arxiv.org/abs/2502.12920v3). The code is provided under [LICENSE](LICENSE). Cite this repository with the commit used.
