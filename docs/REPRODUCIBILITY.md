@@ -2,7 +2,7 @@
 
 ## What this snapshot permits
 
-1. Recompute the seven-method, setting-sensitivity, and jointly trained summaries in `results/paper/` from the unrounded condition-level tables (see [Condition-level records](#condition-level-records)).
+1. Recompute every summary in `results/paper/` from the unrounded condition-level tables (see [Condition-level records](#condition-level-records)).
 2. Recompute endpoint-position ablations from all 576 condition/policy records.
 3. Audit all additional-validation period means and candidate choices from saved block losses.
 4. Run and test the online correction and Fourier comparator implementations.
@@ -58,6 +58,8 @@ Run `python -m unittest test_pipeline` for portable input/order safeguards, and 
 | `table03_all_conditions.csv` | 672 | Seven methods for each of the 96 conditions: losses, reductions from the uncorrected base, and retained bytes |
 | `tableS01_all_conditions.csv` | 96 | EPOC, uncorrected base, full ELF, and the no-endpoint control for each condition |
 | `tableS05_sensitivity_conditions.csv` | 1,248 | Thirteen one-factor EPOC settings for each condition |
+| `table05_endpoint_selection_conditions.csv` | 384 | EPOC and the equal-size first, middle, and mean residual controls for each condition |
+| `table06_input_ablation_conditions.csv` | 672 | EPOC and six input-construction controls, including the projected endpoint, for each condition |
 | `tableS02_learned_all.csv` | 864 | Jointly trained base, raw and blended adapters, and blended EPOC for each warmup, width, and seed |
 | `tableS02_width64_training.csv` | 288 | Width-64 joint runs and the separately trained base-only runs |
 | `table03_overview.csv`, `table03.csv` | 7, 16 | Means over the 96 conditions; mean losses for each series and backbone |
@@ -69,7 +71,7 @@ Run `python -m unittest test_pipeline` for portable input/order safeguards, and 
 
 In `tableS01_all_conditions.csv`, `mse` and `mae` describe EPOC and `independent_mse` is the no-endpoint control; `trace_file` identifies archived block losses that are not distributed. In `tableS02_learned_all.csv`, `rank` is the adapter width, `kind` is the warmup (`mae` or `sf`), and `boundary` is the blended EPOC forecast; arm names in `tableS02_width64_training.csv` carry the warmup as a prefix. In both files, the dataset code `bdg2` denotes BDG2 Rat.
 
-`reproduce.py` recomputes `table03_overview.csv`, `table03.csv`, `table04_tefl_joint.csv`, `table07_setting_sensitivity.csv`, and the jointly trained rows of `table05_endpoint_selection.csv` from these files and `results/endpoint_positions.json`. The fixed-base rows of `table05_endpoint_selection.csv` and `table06_input_ablation.csv` are distributed as summaries. `results/validation/` holds their condition-level inputs, except for the projected-endpoint control, for the 72 main-cohort conditions and the four seed-0 legacy Fox/Panther runs; it does not cover the other 20 Fox/Panther conditions.
+`reproduce.py` recomputes every summary in the table, apart from the descriptive `table01.csv` and `table02.csv`, from the condition-level files and `results/endpoint_positions.json`. For the 72 main-cohort conditions and the four seed-0 legacy Fox/Panther runs, the fixed-base control records also agree with the retrospective records in `results/validation/`, which do not contain the projected-endpoint control.
 
 ## Additional-validation arrays
 
@@ -100,6 +102,8 @@ Run `python report_rat_exclusion.py`; the regenerated `runs/rat_exclusion/summar
 
 The mean-summary interpretation is also clarified: after scaling, the mean equals the retained DC coefficient. Since a component-wise regressor otherwise sees only its own residual coefficient, this is a duplicate residual feature only for the DC output component. For non-DC components it provides access to the DC coefficient; recoverability from the full retained state is different from redundancy within an individual regression. The original mean-control predictions and results are unchanged.
 
-### 96-condition records
+### 96-condition records (v0.3.0)
 
-Commits after v0.2.1 added the records for the 96 fixed-base conditions, which include every seed and both base-training phases for Fox and Panther. Derived tables from earlier drafts (`table05.csv` to `table08.csv`, `tableS03_seed.csv`, `tableS05_sensitivity.csv`, `tableS06_origins.csv`, `tableS06_temporal_selection.csv`, and `tableS07_rat_exclusion.csv`) were later removed from `results/paper/` because their names overlapped the current records. They remain in the Git history.
+This release contains the records for the 96 fixed-base conditions, which include every seed and both base-training phases for Fox and Panther, and the condition-level records behind the fixed-base endpoint and input-construction summaries (`table05_endpoint_selection_conditions.csv` and `table06_input_ablation_conditions.csv`). Derived tables from earlier drafts (`table05.csv` to `table08.csv`, `tableS03_seed.csv`, `tableS05_sensitivity.csv`, `tableS06_origins.csv`, `tableS06_temporal_selection.csv`, and `tableS07_rat_exclusion.csv`) were removed from `results/paper/` because their names overlapped the current records. They remain in the Git history.
+
+Since v0.2.1, code changes are limited to `reproduce.py`, the wording of docstrings and messages, and the default base-training dataset list in `train.py` and `run_pipeline.py`, which now covers every Fox/Panther seed and phase. Correction and comparator code and the ETTh1/seed-0 route verified for v0.2.0 are unchanged. The packaged training route was not rerun for the added Fox/Panther runs; their archived selections and checkpoint hashes are in `config/site_main96_bases_manifest.json`. For this release, `reproduce.py` and the nine unit tests passed with Python 3.11.7, NumPy 1.26.4, and pandas 2.1.4.

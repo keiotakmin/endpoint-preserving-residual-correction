@@ -99,6 +99,25 @@ def main():
                 gains.append(mean(100*(1-mean(v)/mean(g[(k[0],k[1],k[2],arm,k[4])])) for k,v in g.items() if k[0]==kind and k[3]=='endpoint' and k[4]==metric))
             np.testing.assert_allclose(gains,[float(selection[(cohort,control)][k]) for k in ('MSE gain (\\%)','MAE gain (\\%)')],rtol=0,atol=1e-9)
             print('Endpoint vs summary:',kind,arm,'MSE/MAE reductions (%)',gains)
+    controls={}
+    for name,candidates in (('table05_endpoint_selection_conditions',4),('table06_input_ablation_conditions',7)):
+        records=csvrows(ROOT/f'results/paper/{name}.csv');assert len(records)==96*candidates
+        for r in records:assert controls.setdefault((r['candidate'],r['dataset'],r['backbone'],r['phase'],r['seed']),r)==r
+    def control(candidate):return [controls[(candidate,*k)] for k in cells]
+    for c in control('proposed'):
+        reference=cells[(c['dataset'],c['backbone'],c['phase'],c['seed'])]['Proposed']
+        np.testing.assert_allclose([float(c[m]) for m in ('mse','mae')],[float(reference[m]) for m in ('mse','mae')],rtol=0,atol=1e-12)
+    for candidate,label in (('first','First residual'),('middle','Middle residual'),('mean','Block mean')):
+        pairs=list(zip(control('proposed'),control(candidate)));assert all(p['state_bytes']==q['state_bytes'] for p,q in pairs)
+        np.testing.assert_allclose([mean(100*(1-float(p[m])/float(q[m])) for p,q in pairs) for m in ('mse','mae')]+[np.median([int(p['state_bytes']) for p,_ in pairs])],
+                                   [float(selection[('Frozen base (96)',label)][k]) for k in ('MSE gain (\\%)','MAE gain (\\%)','Bytes')],rtol=0,atol=1e-9)
+    inputs=['proposed','no_endpoint','projected_endpoint','endpoint_only','no_residual_dct','no_forecast','persistence']
+    ablation=csvrows(ROOT/'results/paper/table06_input_ablation.csv');assert len(ablation)==len(inputs)
+    for candidate,r in zip(inputs,ablation):
+        q=control(candidate)
+        np.testing.assert_allclose([mean(100*(1-float(c[m])/float(c['static_'+m])) for c in q) for m in ('mse','mae')]+[np.median([int(c['state_bytes']) for c in q])],
+                                   [float(r[k]) for k in ('MSE (\\%)','MAE (\\%)','Bytes')],rtol=0,atol=1e-9)
+    print('Fixed-base controls: three endpoint summaries and',len(inputs),'input constructions x 96 conditions verified')
     validation=ROOT/'results/validation'
     rows=csvrows(validation/'all_results.csv');choices=csvrows(validation/'selection.csv')
     byid=defaultdict(list);selected=defaultdict(list)
@@ -124,6 +143,15 @@ def main():
                     np.testing.assert_allclose(loss[i,lo:hi,1].mean(0),[float(r[name+'_'+m]) for m in ('mse','mae')],rtol=1e-12,atol=1e-12)
     assert (count,len(rows),len(choices))==(148,31080,1184)
     print('Validated:',count,'streams,',len(rows),'result rows,',len(choices),'selection records')
+    overlap=0
+    for r in rows:
+        k=(r['candidate'],r['dataset'],r['backbone'],r['phase'],r['seed'])
+        if r['cohort'] in ('main','sites') and r['segment']=='full' and r['policy']=='global' and k in controls:
+            fields=('mse','mae','static_mse','static_mae')
+            np.testing.assert_allclose([float(r[m]) for m in fields],[float(controls[k][m]) for m in fields],rtol=0,atol=1e-12)
+            assert int(r['state_bytes'])==int(controls[k]['state_bytes']);overlap+=1
+    assert overlap==684
+    print('Fixed-base controls agree with',overlap,'overlapping retrospective records (76 conditions)')
     for candidate in ('proposed','endpoint_only','no_residual_dct','no_forecast','no_endpoint','persistence'):
         rs=[r for r in rows if (r['cohort'],r['segment'],r['policy'],r['candidate'])==('main','full','global',candidate)]
         print('72-condition retrospective cohort:',candidate,mean(100*(1-float(r['mse'])/float(r['static_mse'])) for r in rs),'% MSE reduction; median bytes',np.median([int(r['state_bytes']) for r in rs]))

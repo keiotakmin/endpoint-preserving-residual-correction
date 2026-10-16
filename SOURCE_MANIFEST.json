@@ -808,5 +808,13 @@
     "source": "config/site_main96_bases_manifest.json + results/paper/tableS01_all_conditions.csv",
     "transformation": "Preserved 72 archived main choices and derived 24 Fox/Panther choices from audited site records.",
     "sha256": "2e57a756a0f11a9a27235411df258857dbb8a21a9c12528c4c6f5d8f0d868d50"
+  },
+  "results/paper/table06_input_ablation_conditions.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table06_input_ablation_conditions.csv",
+    "sha256": "2f2c51fc2a4e8b6dee4558832e497f69be4368b9971954afe4665350722882dc"
+  },
+  "results/paper/table05_endpoint_selection_conditions.csv": {
+    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table05_endpoint_selection_conditions.csv",
+    "sha256": "244db088f6cfac6b7d1d09feae58a2619b3900eb49f8ff740f2080378ef17b75"
   }
 }
