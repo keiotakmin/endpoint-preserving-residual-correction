@@ -91,14 +91,6 @@
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table04.csv",
     "sha256": "30814971714e0b7acdad64b5ce922510b217876adba39409645493a831c01b69"
   },
-  "results/paper/table05.csv": {
-    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table05.csv",
-    "sha256": "7ffaf09ce2bbb198d096a546f7194fa57c0a6ce2b7109712a8aa252e01c9c9b4"
-  },
-  "results/paper/table06.csv": {
-    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table06.csv",
-    "sha256": "43fa2c9bbd27af037b6e231363779abfd60d4e2250dcd04aaed3bd7c1692dd2b"
-  },
   "results/paper/tableS01_all_conditions.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS01_all_conditions.csv",
     "sha256": "3e76cb87584155674ea18de568084044853ba08b219e43e7ae6c183ca733d5ac"
@@ -106,10 +98,6 @@
   "results/paper/tableS02_learned_all.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS02_learned_all.csv",
     "sha256": "e78880ebe9dbf0e408e9f407fae0c63b3ab7728b8ce28fc862418fbaf0be377f"
-  },
-  "results/paper/tableS03_seed.csv": {
-    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS03_seed.csv",
-    "sha256": "9d19d9060361317e0a169049cd7900dcde98379edccda3c7271aed55fc4c9936"
   },
   "results/validation/ablation_summary.csv": {
     "source": "results/tsf_edge/endpoint_review_validation/ablation_summary.csv",
@@ -751,22 +739,6 @@
     ],
     "sha256": "60883da1ccdd9655dc8405f9b05fac02a8bea20468266420e4c75ecfdd5132ec"
   },
-  "results/paper/table07.csv": {
-    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table07.csv",
-    "sha256": "d873bf4414849170bf74fd3d55f6316311c438dce622b6e310c7c20947c86985"
-  },
-  "results/paper/tableS06_origins.csv": {
-    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS06_origins.csv",
-    "sha256": "36f756a1aad4686da462d63b024361302b21c253a22b61a8e57c3e4bbc12dc67"
-  },
-  "results/paper/table08.csv": {
-    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table08.csv",
-    "sha256": "dd345a6a0b15bc0d1cbf0db8e7b632f037d99779647001abf9b60731989384a7"
-  },
-  "results/paper/tableS05_sensitivity.csv": {
-    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS05_sensitivity.csv",
-    "sha256": "8d574a0c9434aefa9df7572cfb4e1788eaeee95b51cd52b3da9fa41f60e0522d"
-  },
   "src/base_training.py": {
     "source": "experiments/tsf_edge/online_eval.py",
     "transformation": "AST-extracted unchanged warmup_model, val_mse, warm_and_select; standalone imports and WARM_GRID.",
@@ -784,10 +756,6 @@
     "transformation": "78 differences from pinned cleaned source after ffill/bfill; exact archived values, no inferred historical rule.",
     "sha256": "0ef8ce6f3171df9792afcc0b9dc71ab0597879b83f8676e2e815262a3237b9a7"
   },
-  "results/paper/tableS07_rat_exclusion.csv": {
-    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS07_rat_exclusion.csv",
-    "sha256": "678c36abeb3dfe62bf3de4c2488fc219f4937e2162001cec89ce43a73d389056"
-  },
   "report_rat_exclusion.py": {
     "source": "experiments/tsf_edge/report_endpoint_rat_exclusion.py",
     "sha256": "21ad42e9c1c032381b084b373d384078abec8711d3b052aa020284912892cd0e"
@@ -803,10 +771,6 @@
   "results/paper/table04_tefl_joint.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table04_tefl_joint.csv",
     "sha256": "30814971714e0b7acdad64b5ce922510b217876adba39409645493a831c01b69"
-  },
-  "results/paper/tableS06_temporal_selection.csv": {
-    "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/tableS06_temporal_selection.csv",
-    "sha256": "e6bba609db541a778e45e856ca0d51c84a05a93572982afde53735932d426dc5"
   },
   "results/paper/table05_endpoint_selection.csv": {
     "source": "experiments/tsf_edge/ieee_access/overleaf_endpoint/figure/table05_endpoint_selection.csv",

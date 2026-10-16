@@ -42,7 +42,11 @@ The full pipeline downloads or prepares eight numerical series and trains fixed-
 | `src/elf_real.py`, `src/elf_capacity.py`, `src/elf_transfer.py` | Fourier comparator and storage accounting |
 | `src/backbones.py`, `prepare_data.py`, `train.py`, `evaluate.py` | Forecast models, data preparation, training, and chronological evaluation |
 | `config/` | Dataset definitions, input hashes, and archived training selections |
-| `results/validation/`, `results/rat_exclusion/` | Saved numerical audit records |
+| `results/paper/` | Condition-level and summary records for the 96 fixed-base conditions and the jointly trained group |
+| `results/endpoint_positions.json` | Equal-size endpoint-position controls on the jointly trained bases |
+| `results/validation/`, `results/rat_exclusion/` | Retrospective audits of the earlier 148-stream cohort, kept separate from the 96-condition records |
 | `SOURCE_MANIFEST.json`, `RELEASE_MANIFEST.json` | Source provenance and file hashes |
+
+The archived method labels `Proposed` and `proposed` in these records denote EPOC. [Record definitions](docs/REPRODUCIBILITY.md#condition-level-records) describe each file in `results/paper/` and state which summaries `reproduce.py` recomputes.
 
 Code is provided under [LICENSE](LICENSE). Original dataset licenses remain with their providers.

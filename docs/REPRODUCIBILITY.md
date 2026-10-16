@@ -2,7 +2,7 @@
 
 ## What this snapshot permits
 
-1. Recompute the stored 96-condition numerical summaries from unrounded condition-level tables.
+1. Recompute the seven-method, setting-sensitivity, and jointly trained summaries in `results/paper/` from the unrounded condition-level tables (see [Condition-level records](#condition-level-records)).
 2. Recompute endpoint-position ablations from all 576 condition/policy records.
 3. Audit all additional-validation period means and candidate choices from saved block losses.
 4. Run and test the online correction and Fourier comparator implementations.
@@ -15,7 +15,7 @@ Raw datasets, checkpoints, and per-horizon forecasts are generated locally by `r
 
 - ETT: https://github.com/zhouhaoyi/ETDataset (ETTh1, ETTh2, ETTm1, ETTm2).
 - Appliances: https://archive.ics.uci.edu/dataset/374/appliances+energy+prediction. Remove timestamp and `rv1`, `rv2`; retain 26 numerical channels.
-- Building Data Genome 2: https://doi.org/10.1038/s41597-020-00712-x. Rat is the main site; Fox and Panther are additional sites. The study selected 15 electricity meters per site by lowest whole-series missingness. `config/datasets.json` fixes all 45 IDs and their order, including historical tie choices. Downloads use a pinned Git LFS media URL for the cleaned electricity table. Fox and Panther reproduce by forward filling and then backward filling. Rat additionally requires the 78 explicit cell replacements in `config/bdg2_rat_snapshot_adjustments.csv` to match the archived input. The source table's SHA-256 is `b6ffc9b4dfcefe5c753594730a08ae822b0d50fec6815abb8f185591e6c630a3`.
+- Building Data Genome 2: https://doi.org/10.1038/s41597-020-00712-x. All three sites enter the 96-condition fixed-base comparison. Rat is also the BDG2 site of the jointly trained group, and the earlier retrospective cohort treated the seed-0 legacy Fox/Panther runs as additional sites. The study selected 15 electricity meters per site by lowest whole-series missingness. `config/datasets.json` fixes all 45 IDs and their order, including historical tie choices. Downloads use a pinned Git LFS media URL for the cleaned electricity table. Fox and Panther reproduce by forward filling and then backward filling. Rat additionally requires the 78 explicit cell replacements in `config/bdg2_rat_snapshot_adjustments.csv` to match the archived input. The source table's SHA-256 is `b6ffc9b4dfcefe5c753594730a08ae822b0d50fec6815abb8f185591e6c630a3`.
 
 The Rat replacements were obtained by comparing the archived prepared CSV with the pinned source after filling. Each row identifies the zero-based row index, meter, filled source value, and archived value. The script checks the source value before replacing it. The historical cleaning decisions that produced this discrepancy are not recovered; these are compatibility records for the evaluated snapshot, not a newly inferred general cleaning rule. No experimental results were changed. All eight prepared arrays must match their recorded SHA-256 after conversion to contiguous little-endian float32, both before and after CSV serialization. Hashes identify numerical inputs, not timestamp formatting.
 
@@ -49,6 +49,28 @@ The 44 matching corrected MSE/MAE comparisons (including full Fourier and learne
 
 Run `python -m unittest test_pipeline` for portable input/order safeguards, and the `src/test_*` suites described in the README for regression, causality, Fourier equivalence, and SF behavior. Nine tests passed for this release.
 
+## Condition-level records
+
+`results/paper/` holds the records for the 96 fixed-base conditions (eight series, two backbones, three seeds, and legacy/refit base training) and for the jointly trained group (six series, two backbones, three seeds, two warmups, and widths 2/4/64). Within each fixed-base condition, every method receives the same base forecasts and targets.
+
+| File | Rows | Contents |
+|---|---:|---|
+| `table03_all_conditions.csv` | 672 | Seven methods for each of the 96 conditions: losses, reductions from the uncorrected base, and retained bytes |
+| `tableS01_all_conditions.csv` | 96 | EPOC, uncorrected base, full ELF, and the no-endpoint control for each condition |
+| `tableS05_sensitivity_conditions.csv` | 1,248 | Thirteen one-factor EPOC settings for each condition |
+| `tableS02_learned_all.csv` | 864 | Jointly trained base, raw and blended adapters, and blended EPOC for each warmup, width, and seed |
+| `tableS02_width64_training.csv` | 288 | Width-64 joint runs and the separately trained base-only runs |
+| `table03_overview.csv`, `table03.csv` | 7, 16 | Means over the 96 conditions; mean losses for each series and backbone |
+| `table04_tefl_joint.csv` | 6 | Joint-training comparison; `table04.csv` is an identical copy |
+| `table05_endpoint_selection.csv` | 9 | Endpoint versus equal-size first, middle, and mean residual summaries |
+| `table06_input_ablation.csv` | 7 | Input-construction controls over the 96 conditions |
+| `table07_setting_sensitivity.csv` | 13 | One-factor setting summaries over the 96 conditions |
+| `table01.csv`, `table02.csv` | 7, 8 | Compared methods and prepared series |
+
+In `tableS01_all_conditions.csv`, `mse` and `mae` describe EPOC and `independent_mse` is the no-endpoint control; `trace_file` identifies archived block losses that are not distributed. In `tableS02_learned_all.csv`, `rank` is the adapter width, `kind` is the warmup (`mae` or `sf`), and `boundary` is the blended EPOC forecast; arm names in `tableS02_width64_training.csv` carry the warmup as a prefix. In both files, the dataset code `bdg2` denotes BDG2 Rat.
+
+`reproduce.py` recomputes `table03_overview.csv`, `table03.csv`, `table04_tefl_joint.csv`, `table07_setting_sensitivity.csv`, and the jointly trained rows of `table05_endpoint_selection.csv` from these files and `results/endpoint_positions.json`. The fixed-base rows of `table05_endpoint_selection.csv` and `table06_input_ablation.csv` are distributed as summaries. `results/validation/` holds their condition-level inputs, except for the projected-endpoint control, for the 72 main-cohort conditions and the four seed-0 legacy Fox/Panther runs; it does not cover the other 20 Fox/Panther conditions.
+
 ## Additional-validation arrays
 
 `results/validation/blocks_*.npz` contains:
@@ -68,6 +90,8 @@ The main summaries average relative reductions over 96 conditions. The retained 
 
 ## Versioned provenance
 
+`SOURCE_MANIFEST.json` preserves original repository-relative paths as provenance identifiers, not runnable paths. The snapshot's executable code and data use only paths within this repository. `RELEASE_MANIFEST.json` hashes every distributed file except itself. Use the annotated Git tag/commit to identify the version and run `reproduce.py` to check integrity.
+
 ### Rat-exclusion sensitivity (v0.2.1)
 
 `report_rat_exclusion.py` reads only the previously archived full-period results and block losses. It audits 6,048 candidate/policy rows from 144 main and width-64 joint streams, then generates 108 comparisons: three cohorts, with/without Rat, raw/global policies, and nine reference constructions. Main cohorts average condition-wise relative reductions; joint cohorts first average the three seed losses per dataset/backbone. The Rat-excluded sizes are 60 main conditions and ten pairs for each warmup. Additional Fox/Panther sites are not part of these cohorts.
@@ -76,4 +100,6 @@ Run `python report_rat_exclusion.py`; the regenerated `runs/rat_exclusion/summar
 
 The mean-summary interpretation is also clarified: after scaling, the mean equals the retained DC coefficient. Since a component-wise regressor otherwise sees only its own residual coefficient, this is a duplicate residual feature only for the DC output component. For non-DC components it provides access to the DC coefficient; recoverability from the full retained state is different from redundancy within an individual regression. The original mean-control predictions and results are unchanged.
 
-`SOURCE_MANIFEST.json` preserves original repository-relative paths as provenance identifiers, not runnable paths. The snapshot's executable code and data use only paths within this repository. `RELEASE_MANIFEST.json` hashes every distributed file except itself. Use the annotated Git tag/commit to identify the version and run `reproduce.py` to check integrity.
+### 96-condition records
+
+Commits after v0.2.1 added the records for the 96 fixed-base conditions, which include every seed and both base-training phases for Fox and Panther. Derived tables from earlier drafts (`table05.csv` to `table08.csv`, `tableS03_seed.csv`, `tableS05_sensitivity.csv`, `tableS06_origins.csv`, `tableS06_temporal_selection.csv`, and `tableS07_rat_exclusion.csv`) were later removed from `results/paper/` because their names overlapped the current records. They remain in the Git history.
